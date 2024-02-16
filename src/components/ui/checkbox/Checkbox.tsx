@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils'
 
 import { checkboxVariants } from './variants'
 
-const Checkbox = forwardRef<
+const CheckboxBase = forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> &
     VariantProps<typeof checkboxVariants>
@@ -26,6 +26,6 @@ const Checkbox = forwardRef<
     </CheckboxPrimitive.Indicator>
   </CheckboxPrimitive.Root>
 ))
-Checkbox.displayName = CheckboxPrimitive.Root.displayName
+CheckboxBase.displayName = CheckboxPrimitive.Root.displayName
 
-export { Checkbox }
+export { CheckboxBase }

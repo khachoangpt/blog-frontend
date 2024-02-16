@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils'
 import { Box } from '../box'
 import { selectItemVariants, selectVariants } from './variants'
 
-const Select = SelectPrimitive.Root
+const SelectBase = SelectPrimitive.Root
 
 const SelectGroup = SelectPrimitive.Group
 
@@ -147,7 +147,7 @@ const SelectSeparator = forwardRef<
 SelectSeparator.displayName = SelectPrimitive.Separator.displayName
 
 export {
-  Select,
+  SelectBase,
   SelectContent,
   SelectGroup,
   SelectItem,

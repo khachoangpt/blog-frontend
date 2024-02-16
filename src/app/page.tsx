@@ -1,5 +1,5 @@
 import {
-  Select,
+  SelectBase,
   SelectContent,
   SelectGroup,
   SelectItem,
@@ -11,7 +11,7 @@ import {
 export default function Home() {
   return (
     <main>
-      <Select>
+      <SelectBase>
         <SelectTrigger className="w-[180px]">
           <SelectValue placeholder="Select a fruit" />
         </SelectTrigger>
@@ -25,7 +25,7 @@ export default function Home() {
             <SelectItem value="pineapple">Pineapple</SelectItem>
           </SelectGroup>
         </SelectContent>
-      </Select>
+      </SelectBase>
     </main>
   )
 }
