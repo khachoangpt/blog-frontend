@@ -1,69 +1,83 @@
+'use client'
+
+import { MinusIcon, PlusIcon } from 'lucide-react'
+import { useState } from 'react'
+
+import { Button } from '@/components/ui/button'
 import {
-  ContextMenu,
-  ContextMenuCheckboxItem,
-  ContextMenuContent,
-  ContextMenuItem,
-  ContextMenuLabel,
-  ContextMenuRadioGroup,
-  ContextMenuRadioItem,
-  ContextMenuSeparator,
-  ContextMenuShortcut,
-  ContextMenuSub,
-  ContextMenuSubContent,
-  ContextMenuSubTrigger,
-  ContextMenuTrigger,
-} from '@/components/ui/context-menu'
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@/components/ui/drawer'
 
 export default function Home() {
+  const [goal, setGoal] = useState(350)
+
+  function onClick(adjustment: number) {
+    setGoal(Math.max(200, Math.min(400, goal + adjustment)))
+  }
+
   return (
     <main>
-      <ContextMenu>
-        <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
-          Right click here
-        </ContextMenuTrigger>
-        <ContextMenuContent className="w-64">
-          <ContextMenuItem inset>
-            Back
-            <ContextMenuShortcut>⌘[</ContextMenuShortcut>
-          </ContextMenuItem>
-          <ContextMenuItem inset disabled>
-            Forward
-            <ContextMenuShortcut>⌘]</ContextMenuShortcut>
-          </ContextMenuItem>
-          <ContextMenuItem inset>
-            Reload
-            <ContextMenuShortcut>⌘R</ContextMenuShortcut>
-          </ContextMenuItem>
-          <ContextMenuSub>
-            <ContextMenuSubTrigger inset>More Tools</ContextMenuSubTrigger>
-            <ContextMenuSubContent className="w-48">
-              <ContextMenuItem>
-                Save Page As...
-                <ContextMenuShortcut>⇧⌘S</ContextMenuShortcut>
-              </ContextMenuItem>
-              <ContextMenuItem>Create Shortcut...</ContextMenuItem>
-              <ContextMenuItem>Name Window...</ContextMenuItem>
-              <ContextMenuSeparator />
-              <ContextMenuItem>Developer Tools</ContextMenuItem>
-            </ContextMenuSubContent>
-          </ContextMenuSub>
-          <ContextMenuSeparator />
-          <ContextMenuCheckboxItem checked>
-            Show Bookmarks Bar
-            <ContextMenuShortcut>⌘⇧B</ContextMenuShortcut>
-          </ContextMenuCheckboxItem>
-          <ContextMenuCheckboxItem>Show Full URLs</ContextMenuCheckboxItem>
-          <ContextMenuSeparator />
-          <ContextMenuRadioGroup value="pedro">
-            <ContextMenuLabel inset>People</ContextMenuLabel>
-            <ContextMenuSeparator />
-            <ContextMenuRadioItem value="pedro">
-              Pedro Duarte
-            </ContextMenuRadioItem>
-            <ContextMenuRadioItem value="colm">Colm Tuite</ContextMenuRadioItem>
-          </ContextMenuRadioGroup>
-        </ContextMenuContent>
-      </ContextMenu>
+      <Drawer>
+        <DrawerTrigger asChild>
+          <Button variant="outline">Open Drawer</Button>
+        </DrawerTrigger>
+        <DrawerContent>
+          <div className="mx-auto w-full max-w-sm">
+            <DrawerHeader>
+              <DrawerTitle>Move Goal</DrawerTitle>
+              <DrawerDescription>
+                Set your daily activity goal.
+              </DrawerDescription>
+            </DrawerHeader>
+            <div className="p-4 pb-0">
+              <div className="flex items-center justify-center space-x-2">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="h-8 w-8 shrink-0 rounded-full"
+                  onClick={() => onClick(-10)}
+                  disabled={goal <= 200}
+                >
+                  <MinusIcon className="h-4 w-4" />
+                  <span className="sr-only">Decrease</span>
+                </Button>
+                <div className="flex-1 text-center">
+                  <div className="text-7xl font-bold tracking-tighter">
+                    {goal}
+                  </div>
+                  <div className="text-[0.70rem] uppercase text-muted-foreground">
+                    Calories/day
+                  </div>
+                </div>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="h-8 w-8 shrink-0 rounded-full"
+                  onClick={() => onClick(10)}
+                  disabled={goal >= 400}
+                >
+                  <PlusIcon className="h-4 w-4" />
+                  <span className="sr-only">Increase</span>
+                </Button>
+              </div>
+              <div className="mt-3 h-[120px]"></div>
+            </div>
+            <DrawerFooter>
+              <Button>Submit</Button>
+              <DrawerClose asChild>
+                <Button variant="outline">Cancel</Button>
+              </DrawerClose>
+            </DrawerFooter>
+          </div>
+        </DrawerContent>
+      </Drawer>
     </main>
   )
 }
