@@ -1,7 +1,7 @@
 'use client'
 
 import * as AvatarPrimitive from '@radix-ui/react-avatar'
-import { VariantProps } from 'class-variance-authority'
+import { type VariantProps } from 'class-variance-authority'
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 
 import { cn } from '@/lib/utils'
