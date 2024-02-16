@@ -1,48 +1,57 @@
-'use client'
+import { CalendarIcon, RocketIcon } from 'lucide-react'
 
-import { ChevronDown } from 'lucide-react'
-import { useState } from 'react'
-
-import { Button } from '@/components/ui/button'
 import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from '@/components/ui/collapsible'
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+} from '@/components/ui/command'
 
 export default function Home() {
-  const [isOpen, setIsOpen] = useState(false)
-
   return (
     <main>
-      <Collapsible
-        open={isOpen}
-        onOpenChange={setIsOpen}
-        className="w-[350px] space-y-2"
-      >
-        <div className="flex items-center justify-between space-x-4 px-4">
-          <h4 className="text-sm font-semibold">
-            @peduarte starred 3 repositories
-          </h4>
-          <CollapsibleTrigger asChild>
-            <Button variant="ghost" size="sm">
-              <ChevronDown className="h-4 w-4" />
-              <span className="sr-only">Toggle</span>
-            </Button>
-          </CollapsibleTrigger>
-        </div>
-        <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
-          @radix-ui/primitives
-        </div>
-        <CollapsibleContent className="space-y-2">
-          <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
-            @radix-ui/colors
-          </div>
-          <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
-            @stitches/react
-          </div>
-        </CollapsibleContent>
-      </Collapsible>
+      <Command className="rounded-lg border shadow-md">
+        <CommandInput placeholder="Type a command or search..." />
+        <CommandList>
+          <CommandEmpty>No results found.</CommandEmpty>
+          <CommandGroup heading="Suggestions">
+            <CommandItem>
+              <CalendarIcon className="mr-2 h-4 w-4" />
+              <span>Calendar</span>
+            </CommandItem>
+            <CommandItem>
+              {/* <FaceIcon className="mr-2 h-4 w-4" /> */}
+              <span>Search Emoji</span>
+            </CommandItem>
+            <CommandItem>
+              <RocketIcon className="mr-2 h-4 w-4" />
+              <span>Launch</span>
+            </CommandItem>
+          </CommandGroup>
+          <CommandSeparator />
+          <CommandGroup heading="Settings">
+            <CommandItem>
+              {/* <PersonIcon className="mr-2 h-4 w-4" /> */}
+              <span>Profile</span>
+              <CommandShortcut>⌘P</CommandShortcut>
+            </CommandItem>
+            <CommandItem>
+              {/* <EnvelopeClosedIcon className="mr-2 h-4 w-4" /> */}
+              <span>Mail</span>
+              <CommandShortcut>⌘B</CommandShortcut>
+            </CommandItem>
+            <CommandItem>
+              {/* <GearIcon className="mr-2 h-4 w-4" /> */}
+              <span>Settings</span>
+              <CommandShortcut>⌘S</CommandShortcut>
+            </CommandItem>
+          </CommandGroup>
+        </CommandList>
+      </Command>
     </main>
   )
 }
