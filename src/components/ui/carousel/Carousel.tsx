@@ -20,6 +20,9 @@ import {
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
+import { Box } from '../box'
+import { Container } from '../container'
+
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
 type CarouselOptions = UseCarouselParameters[0]
@@ -157,7 +160,7 @@ const Carousel = forwardRef<
 
     return (
       <CarouselContext.Provider value={carouselContextValue}>
-        <div
+        <Container
           ref={ref}
           onKeyDownCapture={handleKeyDown}
           className={cn('relative', className)}
@@ -166,7 +169,7 @@ const Carousel = forwardRef<
           {...props}
         >
           {children}
-        </div>
+        </Container>
       </CarouselContext.Provider>
     )
   },
@@ -180,8 +183,8 @@ const CarouselContent = forwardRef<
   const { carouselRef, orientation } = useCarousel()
 
   return (
-    <div ref={carouselRef} className="overflow-hidden">
-      <div
+    <Container ref={carouselRef} className="overflow-hidden">
+      <Container
         ref={ref}
         className={cn(
           'flex',
@@ -190,7 +193,7 @@ const CarouselContent = forwardRef<
         )}
         {...props}
       />
-    </div>
+    </Container>
   )
 })
 CarouselContent.displayName = 'CarouselContent'
@@ -200,7 +203,7 @@ const CarouselItem = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
     const { orientation } = useCarousel()
 
     return (
-      <div
+      <Container
         ref={ref}
         role="group"
         aria-roledescription="slide"
@@ -239,7 +242,7 @@ const CarouselPrevious = forwardRef<
       {...props}
     >
       <ArrowLeft className="h-4 w-4" />
-      <span className="sr-only">Previous slide</span>
+      <Box className="sr-only">Previous slide</Box>
     </Button>
   )
 })
@@ -268,7 +271,7 @@ const CarouselNext = forwardRef<
       {...props}
     >
       <ArrowRight className="h-4 w-4" />
-      <span className="sr-only">Next slide</span>
+      <Box className="sr-only">Next slide</Box>
     </Button>
   )
 })
