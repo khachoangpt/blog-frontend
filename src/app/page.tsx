@@ -1,9 +1,9 @@
-import { Textarea } from '@/components/ui/textarea'
+import LoginForm from '@/containers/login/components/LoginForm'
 
 export default function Home() {
   return (
-    <main>
-      <Textarea placeholder="Type your message here." />
+    <main className="m-auto max-w-xl">
+      <LoginForm />
     </main>
   )
 }
