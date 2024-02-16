@@ -1,6 +1,7 @@
 'use client'
 
 import * as AccordionPrimitive from '@radix-ui/react-accordion'
+import { VariantProps } from 'class-variance-authority'
 import { ChevronDown } from 'lucide-react'
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 
@@ -16,7 +17,8 @@ const Accordion = AccordionPrimitive.Root
 
 const AccordionItem = forwardRef<
   ElementRef<typeof AccordionPrimitive.Item>,
-  ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
+  ComponentPropsWithoutRef<typeof AccordionPrimitive.Item> &
+    VariantProps<typeof accordionItemVariants>
 >(({ className, ...props }, ref) => (
   <AccordionPrimitive.Item
     ref={ref}
@@ -28,7 +30,8 @@ AccordionItem.displayName = 'AccordionItem'
 
 const AccordionTrigger = forwardRef<
   ElementRef<typeof AccordionPrimitive.Trigger>,
-  ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
+  ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> &
+    VariantProps<typeof accordionTriggerVariants>
 >(({ className, children, ...props }, ref) => (
   <AccordionPrimitive.Header className="flex">
     <AccordionPrimitive.Trigger
@@ -45,7 +48,8 @@ AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName
 
 const AccordionContent = forwardRef<
   ElementRef<typeof AccordionPrimitive.Content>,
-  ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
+  ComponentPropsWithoutRef<typeof AccordionPrimitive.Content> &
+    VariantProps<typeof accordionContentVariants>
 >(({ className, children, ...props }, ref) => (
   <AccordionPrimitive.Content
     ref={ref}

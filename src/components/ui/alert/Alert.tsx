@@ -3,6 +3,8 @@ import { forwardRef, HTMLAttributes } from 'react'
 
 import { cn } from '@/lib/utils'
 
+import { Container } from '../container'
+import { Heading } from '../heading'
 import {
   alertDescriptionVariants,
   alertTitleVariants,
@@ -13,7 +15,7 @@ const Alert = forwardRef<
   HTMLDivElement,
   HTMLAttributes<HTMLDivElement> & VariantProps<typeof alertVariants>
 >(({ className, variant, ...props }, ref) => (
-  <div
+  <Container
     ref={ref}
     role="alert"
     className={cn(alertVariants({ variant }), className)}
@@ -24,19 +26,25 @@ Alert.displayName = 'Alert'
 
 const AlertTitle = forwardRef<
   HTMLParagraphElement,
-  HTMLAttributes<HTMLHeadingElement>
+  HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof alertTitleVariants>
 >(({ className, children, ...props }, ref) => (
-  <h5 ref={ref} className={cn(alertTitleVariants(), className)} {...props}>
+  <Heading
+    level={5}
+    ref={ref}
+    className={cn(alertTitleVariants(), className)}
+    {...props}
+  >
     {children}
-  </h5>
+  </Heading>
 ))
 AlertTitle.displayName = 'AlertTitle'
 
 const AlertDescription = forwardRef<
   HTMLParagraphElement,
-  HTMLAttributes<HTMLParagraphElement>
+  HTMLAttributes<HTMLParagraphElement> &
+    VariantProps<typeof alertDescriptionVariants>
 >(({ className, ...props }, ref) => (
-  <div
+  <Container
     ref={ref}
     className={cn(alertDescriptionVariants(), className)}
     {...props}

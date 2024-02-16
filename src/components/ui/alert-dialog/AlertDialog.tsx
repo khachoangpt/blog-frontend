@@ -12,6 +12,7 @@ import {
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
+import { Container } from '../container'
 import {
   alertDialogContentVariants,
   alertDialogDescriptionVariants,
@@ -60,7 +61,10 @@ const AlertDialogHeader = ({
   ...props
 }: HTMLAttributes<HTMLDivElement> &
   VariantProps<typeof alertDialogHeaderVariants>) => (
-  <div className={cn(alertDialogHeaderVariants(), className)} {...props} />
+  <Container
+    className={cn(alertDialogHeaderVariants(), className)}
+    {...props}
+  />
 )
 AlertDialogHeader.displayName = 'AlertDialogHeader'
 
@@ -69,7 +73,10 @@ const AlertDialogFooter = ({
   ...props
 }: HTMLAttributes<HTMLDivElement> &
   VariantProps<typeof alertDialogFooterVariants>) => (
-  <div className={cn(alertDialogFooterVariants(), className)} {...props} />
+  <Container
+    className={cn(alertDialogFooterVariants(), className)}
+    {...props}
+  />
 )
 AlertDialogFooter.displayName = 'AlertDialogFooter'
 
