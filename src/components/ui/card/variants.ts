@@ -6,9 +6,7 @@ export const cardVariants = cva(
 
 export const cardHeaderVariants = cva('flex flex-col space-y-1.5 p-6')
 
-export const cardTitleVariants = cva(
-  'text-2xl font-semibold leading-none tracking-tight',
-)
+export const cardTitleVariants = cva('text-2xl font-semibold tracking-tight')
 
 export const cardDescriptionVariants = cva('text-sm text-muted-foreground')
 
