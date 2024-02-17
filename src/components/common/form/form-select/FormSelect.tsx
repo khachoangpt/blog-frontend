@@ -7,14 +7,9 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form'
+import { SelectOptions } from '@/types'
 
 import { Select } from '../../select'
-
-type SelectOptions = {
-  label: string
-  value: string
-  disabled?: boolean
-}
 
 type Props = {
   label?: string

@@ -8,12 +8,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { cn } from '@/lib/utils'
-
-type SelectOptions = {
-  label: string
-  value: string
-  disabled?: boolean
-}
+import { SelectOptions } from '@/types'
 
 type Props = {
   className?: string
