@@ -6,10 +6,13 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
+import { getListBlog } from '@/hooks/blog/get-list-blog'
 
-export default function Home() {
+export default async function Home() {
+  const blog = await (await getListBlog()).json()
   return (
     <main className="m-auto max-w-xl">
+      {JSON.stringify(blog)}
       <Popover>
         <PopoverTrigger asChild>
           <Button variant="outline">Open popover</Button>
