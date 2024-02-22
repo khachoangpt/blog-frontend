@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import axios from 'axios'
+import axios from '$/request/axios'
 import type {
   AxiosError,
   AxiosRequestConfig,
@@ -11,12 +11,16 @@ import type {
 } from 'axios'
 import FormData from 'form-data'
 
-import { ApiError } from './ApiError'
-import type { ApiRequestOptions } from './ApiRequestOptions'
-import type { ApiResult } from './ApiResult'
-import { CancelablePromise } from './CancelablePromise'
-import type { OnCancel } from './CancelablePromise'
-import type { OpenAPIConfig } from './OpenAPI'
+import { ApiError } from '$/backend/core/ApiError'
+import type { ApiRequestOptions } from '$/backend/core/ApiRequestOptions'
+import type { ApiResult } from '$/backend/core/ApiResult'
+import { CancelablePromise } from '$/backend/core/CancelablePromise'
+import type { OnCancel } from '$/backend/core/CancelablePromise'
+import type { OpenAPIConfig } from '$/backend/core/OpenAPI'
+import { setEndpoint } from '$/request/endpoint'
+
+// set custom api path
+setEndpoint()
 
 export const isDefined = <T>(
   value: T | null | undefined,
@@ -161,13 +165,10 @@ export const getHeaders = async (
   options: ApiRequestOptions,
   formData?: FormData,
 ): Promise<Record<string, string>> => {
-  const [token, username, password, additionalHeaders] = await Promise.all([
-    resolve(options, config.TOKEN),
-    resolve(options, config.USERNAME),
-    resolve(options, config.PASSWORD),
-    resolve(options, config.HEADERS),
-  ])
-
+  const token = await resolve(options, config.TOKEN)
+  const username = await resolve(options, config.USERNAME)
+  const password = await resolve(options, config.PASSWORD)
+  const additionalHeaders = await resolve(options, config.HEADERS)
   const formHeaders =
     (typeof formData?.getHeaders === 'function' && formData?.getHeaders()) || {}
 
@@ -227,7 +228,7 @@ export const sendRequest = async <T>(
   onCancel: OnCancel,
   axiosClient: AxiosInstance,
 ): Promise<AxiosResponse<T>> => {
-  const source = axios.CancelToken.source()
+  // const source = axios.CancelToken.source()
 
   const requestConfig: AxiosRequestConfig = {
     url,
@@ -235,10 +236,10 @@ export const sendRequest = async <T>(
     data: body ?? formData,
     method: options.method,
     withCredentials: config.WITH_CREDENTIALS,
-    cancelToken: source.token,
+    // cancelToken: source.token,
   }
 
-  onCancel(() => source.cancel('The user aborted a request.'))
+  // onCancel(() => source.cancel('The user aborted a request.'))
 
   try {
     return await axiosClient.request(requestConfig)

@@ -1,2 +1,2 @@
 pnpm lint-staged
-pnpm tsc --noEmit
+pnpm tsc --target es6 --noEmit
