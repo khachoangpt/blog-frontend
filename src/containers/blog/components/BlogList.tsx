@@ -1,11 +1,9 @@
 import { Container } from '@/components/ui/container'
-import { getBlogList } from '@/hooks/blog/get-blog-list'
 import { useBlogStore } from '@/store/blog'
 
 import BlogItem from './BlogItem'
 
 const BlogList = async () => {
-  await getBlogList({ order: ['created_at'] })
   const blogs = useBlogStore.getState()
 
   return (

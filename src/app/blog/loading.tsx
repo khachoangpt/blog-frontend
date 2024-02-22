@@ -1,5 +1,5 @@
-import { Container } from '@/components/ui/container'
+import BlogItemSkeleton from '@/containers/blog/components/BlogItemSkeleton'
 
 export default function Loading() {
-  return <Container>Loading</Container>
+  return <BlogItemSkeleton />
 }
