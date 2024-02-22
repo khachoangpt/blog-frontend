@@ -7,7 +7,7 @@ import BlogList from '@/containers/blog/components/BlogList'
 const Page = () => {
   return (
     <Container>
-      <Suspense fallback={<BlogItemSkeleton />}>
+      <Suspense key="sus1" fallback={<BlogItemSkeleton />}>
         <BlogList />
       </Suspense>
     </Container>
