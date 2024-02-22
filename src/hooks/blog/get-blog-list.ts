@@ -15,5 +15,6 @@ export const getBlogList = async (query?: GetBlogsQuery) => {
   unstable_noStore()
   const { blogs, count } = await BlogService.getBlogs(query ?? {})
   useBlogStore.setState(blogs ?? [], true)
+  await new Promise((resolve) => setTimeout(resolve, 2000))
   return { blogs: blogs ?? [], count }
 }

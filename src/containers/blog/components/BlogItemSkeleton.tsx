@@ -1,7 +1,7 @@
 import { Container } from '@/components/ui/container'
 import { Skeleton } from '@/components/ui/skeleton/Skeleton'
 
-const BlogItemSkeleton = () => {
+export default function BlogItemSkeleton() {
   return (
     <Container className="flex gap-x-8 rounded-md border p-6">
       <Skeleton className="h-40 w-64 flex-none max-md:hidden" />
@@ -17,5 +17,3 @@ const BlogItemSkeleton = () => {
     </Container>
   )
 }
-
-export default BlogItemSkeleton
