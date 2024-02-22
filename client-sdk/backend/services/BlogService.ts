@@ -30,7 +30,7 @@ export class BlogService {
   /**
    * Get blog list
    * Get blog list
-   * @returns Blog An array of blogs
+   * @returns any An array of blogs
    * @throws ApiError
    */
   public static getBlogs({
@@ -60,7 +60,16 @@ export class BlogService {
      * Order
      */
     order?: Array<string>,
-  }): CancelablePromise<Array<Blog>> {
+  }): CancelablePromise<{
+    /**
+     * An array of blogs
+     */
+    blogs?: Array<Blog>;
+    /**
+     * Total blogs
+     */
+    count?: number;
+  }> {
     return __request(OpenAPI, {
       method: 'GET',
       url: '/customer/blog',

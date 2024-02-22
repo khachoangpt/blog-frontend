@@ -7,34 +7,28 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Container } from '@/components/ui/container'
+import { Blog } from '$/backend'
 
-const BlogItem = () => {
+type Props = {
+  blog: Blog
+}
+
+const BlogItem = ({ blog }: Props) => {
   return (
     <Card className="cursor-pointer pt-6 hover:drop-shadow-2xl">
       <CardContent className="flex gap-x-8">
-        <Container className="relative h-40 w-64 flex-none max-md:hidden">
+        <Container className="relative h-40 w-64 flex-none rounded-md bg-gray-100 max-md:hidden">
           <Image
-            src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80"
-            alt="#"
+            src={blog.thumbnail ?? '/#'}
+            alt={blog.thumbnail ?? '/#'}
             fill
             className="w-full rounded-md"
           />
         </Container>
         <Container className="space-y-4">
-          <CardTitle>Title Title Title Title Title Title Title Title</CardTitle>
+          <CardTitle>{blog.title}</CardTitle>
           <CardDescription className="line-clamp-5 overflow-hidden">
-            Description Description Description Description Description
-            Description Description Description Description Description
-            Description Description Description Description Description
-            Description Description Description Description Description
-            Description Description Description Description Description
-            Description Description Description Description Description
-            Description Description Description Description Description
-            Description Description Description Description Description
-            Description Description Description Description Description
-            Description Description Description Description Description
-            Description Description Description Description Description
-            Description Description Description Description Description
+            {blog.summary}
           </CardDescription>
         </Container>
       </CardContent>
