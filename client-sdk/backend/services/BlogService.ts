@@ -2,12 +2,12 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { Blog } from '../models/Blog'
-import type { CreateBlogParams } from '../models/CreateBlogParams'
-import type { UpdateBlogParams } from '../models/UpdateBlogParams'
-import type { CancelablePromise } from '../core/CancelablePromise'
-import { OpenAPI } from '../core/OpenAPI'
-import { request as __request } from '../core/request'
+import type { Blog } from '../models/Blog';
+import type { CreateBlogParams } from '../models/CreateBlogParams';
+import type { UpdateBlogParams } from '../models/UpdateBlogParams';
+import type { CancelablePromise } from '../core/CancelablePromise';
+import { OpenAPI } from '../core/OpenAPI';
+import { request as __request } from '../core/request';
 export class BlogService {
   /**
    * Create a blog
@@ -18,14 +18,14 @@ export class BlogService {
   public static createBlog({
     requestBody,
   }: {
-    requestBody?: CreateBlogParams
+    requestBody?: CreateBlogParams,
   }): CancelablePromise<Blog> {
     return __request(OpenAPI, {
       method: 'POST',
       url: '/customer/blog',
       body: requestBody,
       mediaType: 'application/json',
-    })
+    });
   }
   /**
    * Get blog list
@@ -43,35 +43,35 @@ export class BlogService {
     /**
      * Select
      */
-    select?: string
+    select?: string,
     /**
      * Skip
      */
-    skip?: number
+    skip?: number,
     /**
      * Take
      */
-    take?: number
+    take?: number,
     /**
      * Relations
      */
-    relations?: Array<string>
+    relations?: Array<string>,
     /**
      * Order
      */
-    order?: Array<string>
+    order?: Array<string>,
   }): CancelablePromise<Array<Blog>> {
     return __request(OpenAPI, {
       method: 'GET',
       url: '/customer/blog',
       query: {
-        select: select,
-        skip: skip,
-        take: take,
-        relations: relations,
-        order: order,
+        'select': select,
+        'skip': skip,
+        'take': take,
+        'relations': relations,
+        'order': order,
       },
-    })
+    });
   }
   /**
    * Update a blog
@@ -82,13 +82,13 @@ export class BlogService {
   public static updateBlog({
     requestBody,
   }: {
-    requestBody?: UpdateBlogParams
+    requestBody?: UpdateBlogParams,
   }): CancelablePromise<Blog> {
     return __request(OpenAPI, {
       method: 'PUT',
       url: '/customer/blog',
       body: requestBody,
       mediaType: 'application/json',
-    })
+    });
   }
 }

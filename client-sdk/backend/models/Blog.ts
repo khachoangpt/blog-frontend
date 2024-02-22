@@ -2,43 +2,44 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { Tag } from './Tag'
+import type { Tag } from './Tag';
 export type Blog = {
   /**
    * Id of blog
    */
-  id?: string
+  id?: string;
   /**
    * Title of blog
    */
-  title?: string
+  title?: string;
   /**
    * Summary of blog
    */
-  summary?: string
+  summary?: string;
   /**
    * Thumbnail of blog
    */
-  thumbnail?: string
+  thumbnail?: string;
   /**
    * Content of blog
    */
-  content?: string
-  tags?: Array<Tag>
+  content?: string;
+  tags?: Array<Tag>;
   /**
    * Check blog is public or not
    */
-  is_published?: string
+  is_published?: string;
   /**
    * Published at of blog
    */
-  published_at?: string
+  published_at?: string;
   /**
    * Created at
    */
-  created_at?: string
+  created_at?: string;
   /**
    * Updated at
    */
-  updated_at?: string
-}
+  updated_at?: string;
+};
+

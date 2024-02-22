@@ -27,4 +27,4 @@ export const $UpdateBlogParams = {
       description: `Content of blog`,
     },
   },
-} as const
+} as const;

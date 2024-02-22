@@ -6,21 +6,22 @@ export type UpdateBlogParams = {
   /**
    * Id of blog
    */
-  id: string
+  id: string;
   /**
    * Title of blog
    */
-  title: string
+  title: string;
   /**
    * Summary of blog
    */
-  summary?: string
+  summary?: string;
   /**
    * Thumbnail of blog
    */
-  thumbnail?: string
+  thumbnail?: string;
   /**
    * Content of blog
    */
-  content?: string
-}
+  content?: string;
+};
+

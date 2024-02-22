@@ -22,4 +22,4 @@ export const $CreateBlogParams = {
       description: `Content of blog`,
     },
   },
-} as const
+} as const;

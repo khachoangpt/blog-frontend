@@ -19,4 +19,4 @@ export const $Tag = {
       },
     },
   },
-} as const
+} as const;

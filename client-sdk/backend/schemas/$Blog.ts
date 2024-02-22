@@ -47,4 +47,4 @@ export const $Blog = {
       description: `Updated at`,
     },
   },
-} as const
+} as const;
