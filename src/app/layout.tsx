@@ -1,8 +1,8 @@
 import './globals.css'
 
 import type { Metadata } from 'next'
-import Link from 'next/link'
 
+import { Header } from '@/components/layout/header'
 import { Container } from '@/components/ui/container'
 import { fontSans } from '@/configs/font'
 import { cn } from '@/lib/utils'
@@ -31,14 +31,5 @@ export default function RootLayout({ children }: MainLayoutProps) {
         </Container>
       </body>
     </html>
-  )
-}
-
-const Header = () => {
-  return (
-    <Container className="border-b-2 px-8 py-4 shadow-2xl">
-      <Link href={'/blog'}>Blog</Link>
-      <Link href={'/'}>Home</Link>
-    </Container>
   )
 }
