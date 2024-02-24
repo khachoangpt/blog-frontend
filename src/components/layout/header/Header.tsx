@@ -1,4 +1,5 @@
-import { Container } from '../../ui/container'
+import { Container } from '@/components/ui/container'
+
 import { MenuHeader } from '.'
 
 export const Header = () => {

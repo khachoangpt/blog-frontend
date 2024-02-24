@@ -1,10 +1,10 @@
 import { Container } from '@/components/ui/container'
-import { useBlogStore } from '@/store/blog'
+import { useBlogListStore } from '@/store/blog'
 
 import BlogItem from './BlogItem'
 
 const BlogList = async () => {
-  const blogs = useBlogStore.getState()
+  const blogs = useBlogListStore.getState()
 
   return (
     <Container className="space-y-6">

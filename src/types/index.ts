@@ -1,5 +1,2 @@
-export type SelectOptions = {
-  label: string
-  value: string
-  disabled?: boolean
-}
+export * from './routes.types'
+export * from './select.types'

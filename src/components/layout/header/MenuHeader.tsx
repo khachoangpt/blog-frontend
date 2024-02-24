@@ -10,12 +10,13 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
+import { pageList } from '@/constants'
 
 export const MenuHeader = () => {
   const pathname = usePathname()
   const headers: { href: string; title: string }[] = [
-    { href: '/', title: 'Home' },
-    { href: '/blog', title: 'Blog' },
+    pageList.home,
+    pageList.blogList,
   ]
 
   return (
