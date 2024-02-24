@@ -100,4 +100,26 @@ export class BlogService {
       mediaType: 'application/json',
     });
   }
+  /**
+   * Get blog detail
+   * Get blog detail
+   * @returns Blog A blog
+   * @throws ApiError
+   */
+  public static getBlogDetail({
+    id,
+  }: {
+    /**
+     * Id of blog
+     */
+    id: string,
+  }): CancelablePromise<Blog> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/customer/blog/{id}',
+      path: {
+        'id': id,
+      },
+    });
+  }
 }
