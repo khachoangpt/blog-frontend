@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 import {
   NavigationMenu,
@@ -11,6 +12,7 @@ import {
 } from '@/components/ui/navigation-menu'
 
 export const MenuHeader = () => {
+  const pathname = usePathname()
   const headers: { href: string; title: string }[] = [
     { href: '/', title: 'Home' },
     { href: '/blog', title: 'Blog' },
@@ -22,7 +24,10 @@ export const MenuHeader = () => {
         {headers.map((header) => (
           <NavigationMenuItem key={header.href}>
             <Link href={header.href} legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <NavigationMenuLink
+                active={pathname === header.href}
+                className={navigationMenuTriggerStyle()}
+              >
                 {header.title}
               </NavigationMenuLink>
             </Link>
