@@ -1,4 +1,7 @@
+'use client'
+
 import {
+  NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
@@ -12,17 +15,19 @@ export const MenuHeader = () => {
   ]
 
   return (
-    <NavigationMenuList>
-      {headers.map((header) => (
-        <NavigationMenuItem key={header.href}>
-          <NavigationMenuLink
-            className={navigationMenuTriggerStyle()}
-            href={header.href}
-          >
-            {header.title}
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-      ))}
-    </NavigationMenuList>
+    <NavigationMenu>
+      <NavigationMenuList>
+        {headers.map((header) => (
+          <NavigationMenuItem key={header.href}>
+            <NavigationMenuLink
+              className={navigationMenuTriggerStyle()}
+              href={header.href}
+            >
+              {header.title}
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+        ))}
+      </NavigationMenuList>
+    </NavigationMenu>
   )
 }
