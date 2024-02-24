@@ -1,5 +1,7 @@
 'use client'
 
+import Link from 'next/link'
+
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -19,12 +21,11 @@ export const MenuHeader = () => {
       <NavigationMenuList>
         {headers.map((header) => (
           <NavigationMenuItem key={header.href}>
-            <NavigationMenuLink
-              className={navigationMenuTriggerStyle()}
-              href={header.href}
-            >
-              {header.title}
-            </NavigationMenuLink>
+            <Link href={header.href} legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                {header.title}
+              </NavigationMenuLink>
+            </Link>
           </NavigationMenuItem>
         ))}
       </NavigationMenuList>
