@@ -21,12 +21,12 @@ export default function RootLayout({ children }: MainLayoutProps) {
     <html lang="en" className="dark">
       <body
         className={cn(
-          'min-h-screen select-none bg-background font-sans antialiased',
+          'min-h-screen bg-background font-sans antialiased',
           fontSans.variable,
         )}
       >
         <Header />
-        <Container className="mx-auto my-10 max-w-5xl max-lg:px-4">
+        <Container className="mx-auto my-10 max-w-5xl select-none max-lg:px-4">
           {children}
         </Container>
       </body>
