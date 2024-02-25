@@ -6,8 +6,7 @@ import { MenuHeader } from '.'
 import ThemeButton from './ThemeButton'
 
 export const Header = () => {
-  const cookie = cookies()
-  const theme = cookie.get('theme')?.value
+  const theme = cookies().get('theme')?.value ?? 'dark'
 
   return (
     <Container className="flex items-center justify-between border-b-2 px-8 py-4 shadow-2xl">
