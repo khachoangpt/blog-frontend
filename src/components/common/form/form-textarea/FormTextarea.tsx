@@ -20,7 +20,7 @@ type Props = {
   disabled?: boolean
 }
 
-const FormTextarea = ({
+export const FormTextarea = ({
   label = '',
   placeholder = '',
   className,
@@ -46,5 +46,3 @@ const FormTextarea = ({
     </FormItem>
   )
 }
-
-export default FormTextarea

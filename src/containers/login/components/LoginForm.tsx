@@ -1,6 +1,6 @@
 'use client'
 
-import FormInput from '@/components/common/form/form-input/FormInput'
+import { FormInput } from '@/components/common/form/form-input'
 import { Button } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
 import { Form, FormField } from '@/components/ui/form'

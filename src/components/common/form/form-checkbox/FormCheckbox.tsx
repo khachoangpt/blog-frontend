@@ -20,7 +20,7 @@ type Props = {
   onChange?(checked: CheckedState): void
 }
 
-const FormCheckbox = ({
+export const FormCheckbox = ({
   id,
   label = '',
   disabled = false,
@@ -48,5 +48,3 @@ const FormCheckbox = ({
     </FormItem>
   )
 }
-
-export default FormCheckbox

@@ -22,7 +22,7 @@ type Props = {
   type?: HTMLInputTypeAttribute
 }
 
-const FormInput = ({
+export const FormInput = ({
   label = '',
   placeholder = '',
   className,
@@ -53,5 +53,3 @@ const FormInput = ({
     </FormItem>
   )
 }
-
-export default FormInput

@@ -22,7 +22,7 @@ type Props = {
   disabled?: boolean
 }
 
-const FormSelect = ({
+export const FormSelect = ({
   label = '',
   options,
   placeholder = 'Select',
@@ -50,5 +50,3 @@ const FormSelect = ({
     </FormItem>
   )
 }
-
-export default FormSelect
