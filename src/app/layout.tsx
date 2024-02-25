@@ -1,6 +1,7 @@
 import './globals.css'
 
 import type { Metadata } from 'next'
+import { cookies } from 'next/headers'
 
 import { Header } from '@/components/layout/header'
 import { Container } from '@/components/ui/container'
@@ -16,9 +17,11 @@ type MainLayoutProps = Readonly<{
   children: React.ReactNode
 }>
 
-export default function RootLayout({ children }: MainLayoutProps) {
+export default async function RootLayout({ children }: MainLayoutProps) {
+  const theme = cookies().get('theme')?.value ?? 'dark'
+
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className={theme}>
       <body
         className={cn(
           'min-h-screen bg-background font-sans antialiased',
