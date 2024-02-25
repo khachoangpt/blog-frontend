@@ -122,4 +122,26 @@ export class BlogService {
       },
     });
   }
+  /**
+   * Publish blog
+   * Publish blog
+   * @returns Blog A blog
+   * @throws ApiError
+   */
+  public static publishBlog({
+    id,
+  }: {
+    /**
+     * Id of blog
+     */
+    id: string,
+  }): CancelablePromise<Blog> {
+    return __request(OpenAPI, {
+      method: 'PATCH',
+      url: '/customer/blog/{id}',
+      path: {
+        'id': id,
+      },
+    });
+  }
 }
