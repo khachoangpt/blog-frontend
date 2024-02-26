@@ -19,6 +19,12 @@ export const pageList = {
     isAuth: false,
     pattern: ['login'],
   },
+  maintenance: {
+    title: 'Maintenance',
+    href: '/maintenance',
+    isAuth: false,
+    pattern: ['maintenance'],
+  },
   home: {
     title: 'Home',
     href: '/',
