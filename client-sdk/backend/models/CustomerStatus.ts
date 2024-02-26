@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 export enum CustomerStatus {
-  ACTIVE = 'ACTIVE',
-  BANNED = 'BANNED',
-  DELETED = 'DELETED',
+  ACTIVE = 'active',
+  BANNED = 'banned',
+  DELETED = 'deleted',
 }
