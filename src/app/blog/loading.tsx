@@ -1,4 +1,4 @@
-import BlogItemSkeleton from '@/containers/blog/components/BlogItemSkeleton'
+import BlogItemSkeleton from '@/modules/blog/components/BlogItemSkeleton'
 
 export default function Loading() {
   return <BlogItemSkeleton />
