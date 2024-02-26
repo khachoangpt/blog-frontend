@@ -8,7 +8,8 @@ import { Form, FormField } from '@/components/ui/form'
 import useLoginController from '../controller/login-controller'
 
 const LoginForm = () => {
-  const { control, loginForm, handleSubmit, login } = useLoginController()
+  const { control, loginForm, handleSubmit, handleLogin } = useLoginController()
+
   return (
     <Form {...loginForm}>
       <Container className="space-y-8">
@@ -32,7 +33,9 @@ const LoginForm = () => {
           )}
         />
       </Container>
-      <Button onClick={handleSubmit(login)}>Login</Button>
+      <Container className="mt-5 flex justify-center">
+        <Button onClick={handleSubmit(handleLogin)}>Login</Button>
+      </Container>
     </Form>
   )
 }

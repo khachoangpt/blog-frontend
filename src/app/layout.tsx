@@ -3,11 +3,12 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { cookies } from 'next/headers'
 
-import { Header } from '@/components/layout/header'
 import { Container } from '@/components/ui/container'
+import { Toaster } from '@/components/ui/sonner'
 import { fontSans } from '@/configs/font'
 import { THEME } from '@/constants'
 import { cn } from '@/lib/utils'
+import { Header } from '@/modules/layout/header'
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -33,6 +34,7 @@ export default async function RootLayout({ children }: MainLayoutProps) {
         <Container className="mx-auto my-10 max-w-5xl select-none max-lg:px-4">
           {children}
         </Container>
+        <Toaster position="top-center" richColors />
       </body>
     </html>
   )
