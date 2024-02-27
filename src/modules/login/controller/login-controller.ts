@@ -19,7 +19,7 @@ const useLoginController = () => {
   const {
     control,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = loginForm
 
   const handleLogin: SubmitHandler<LoginParams> = async (data) => {
@@ -31,7 +31,7 @@ const useLoginController = () => {
     !!error && toast.error(error)
   }
 
-  return { control, handleSubmit, errors, loginForm, handleLogin }
+  return { control, handleSubmit, errors, loginForm, handleLogin, isSubmitting }
 }
 
 export default useLoginController
