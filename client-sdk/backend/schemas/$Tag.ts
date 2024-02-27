@@ -12,6 +12,14 @@ export const $Tag = {
       type: 'string',
       description: `Name of tag`,
     },
+    created_at: {
+      type: 'string',
+      description: `Created at`,
+    },
+    updated_at: {
+      type: 'string',
+      description: `Updated at`,
+    },
     blogs: {
       type: 'array',
       contains: {

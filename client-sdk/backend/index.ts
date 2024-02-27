@@ -9,6 +9,7 @@ export type { OpenAPIConfig } from './core/OpenAPI';
 
 export type { Blog } from './models/Blog';
 export type { CreateBlogParams } from './models/CreateBlogParams';
+export type { CreateTagParams } from './models/CreateTagParams';
 export { CustomerStatus } from './models/CustomerStatus';
 export type { LoginDTO } from './models/LoginDTO';
 export type { LoginParams } from './models/LoginParams';
@@ -19,6 +20,7 @@ export type { UpdateBlogParams } from './models/UpdateBlogParams';
 
 export { $Blog } from './schemas/$Blog';
 export { $CreateBlogParams } from './schemas/$CreateBlogParams';
+export { $CreateTagParams } from './schemas/$CreateTagParams';
 export { $CustomerStatus } from './schemas/$CustomerStatus';
 export { $LoginDTO } from './schemas/$LoginDTO';
 export { $LoginParams } from './schemas/$LoginParams';
@@ -29,3 +31,4 @@ export { $UpdateBlogParams } from './schemas/$UpdateBlogParams';
 
 export { AuthService } from './services/AuthService';
 export { BlogService } from './services/BlogService';
+export { TagService } from './services/TagService';
