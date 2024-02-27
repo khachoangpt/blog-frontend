@@ -5,6 +5,7 @@ import { forwardRef } from 'react'
 
 import { cn } from '@/lib/utils'
 
+import { Box } from '../box'
 import { buttonVariants } from './variants'
 
 export interface ButtonProps
@@ -36,7 +37,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         {...props}
       >
-        {loading ? <Loader2Icon className="animate-spin" /> : children}
+        <Box className={cn({ 'opacity-0': loading })}>{children}</Box>
+        {loading && <Loader2Icon className="absolute animate-spin" />}
       </Comp>
     )
   },
