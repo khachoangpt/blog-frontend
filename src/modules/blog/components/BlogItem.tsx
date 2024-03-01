@@ -1,6 +1,3 @@
-import Image from 'next/image'
-import Link from 'next/link'
-
 import type { Blog } from '$/backend'
 import {
 	Card,
@@ -9,6 +6,8 @@ import {
 	CardTitle,
 } from '@/components/ui/card'
 import { Container } from '@/components/ui/container'
+import Image from 'next/image'
+import Link from 'next/link'
 
 type Props = {
 	blog: Blog

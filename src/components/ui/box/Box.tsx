@@ -1,8 +1,8 @@
-import { DetailedHTMLProps, HTMLAttributes } from 'react'
+import type { DetailedHTMLProps, HTMLAttributes } from 'react'
 
 export const Box = ({
-  children,
-  ...rest
+	children,
+	...rest
 }: DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>) => {
-  return <span {...rest}>{children}</span>
+	return <span {...rest}>{children}</span>
 }

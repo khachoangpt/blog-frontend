@@ -1,6 +1,5 @@
+import type { Blog } from '$/backend'
 import { create } from 'zustand'
-
-import { Blog } from '$/backend'
 
 export const useBlogListStore = create<Blog[]>(() => [])
 

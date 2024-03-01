@@ -1,8 +1,6 @@
+import { cn } from '@/lib/utils'
 import type { VariantProps } from 'class-variance-authority'
 import { type HTMLAttributes, forwardRef } from 'react'
-
-import { cn } from '@/lib/utils'
-
 import { Container } from '../container'
 import { Heading } from '../heading'
 import {
