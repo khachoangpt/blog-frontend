@@ -1,15 +1,14 @@
+import { BlogService } from '$/backend'
+import { useBlogDetailStore } from '@/store/blog'
 import { unstable_noStore as noStore } from 'next/cache'
 
-import { useBlogDetailStore } from '@/store/blog'
-import { BlogService } from '$/backend'
-
 export const getBlogDetail = async (id: string) => {
-  noStore()
-  try {
-    const blog = await BlogService.getBlogDetail({ id })
-    useBlogDetailStore.setState(blog ?? null, true)
-    return { blog }
-  } catch (error) {
-    return { error: 'Blog not found' }
-  }
+	noStore()
+	try {
+		const blog = await BlogService.getBlogDetail({ id })
+		useBlogDetailStore.setState(blog ?? null, true)
+		return { blog }
+	} catch {
+		return { error: 'Blog not found' }
+	}
 }

@@ -3,5 +3,5 @@
 import { cookies } from 'next/headers'
 
 export const changeTheme = async (theme: string) => {
-  cookies().set('theme', theme)
+	cookies().set('theme', theme)
 }
