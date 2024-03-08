@@ -1,11 +1,11 @@
-import { DetailedHTMLProps, HTMLAttributes } from 'react'
+import type { DetailedHTMLProps, HTMLAttributes } from 'react'
 
 export const Paragraph = ({
-  children,
-  ...rest
+	children,
+	...rest
 }: DetailedHTMLProps<
-  HTMLAttributes<HTMLParagraphElement>,
-  HTMLParagraphElement
+	HTMLAttributes<HTMLParagraphElement>,
+	HTMLParagraphElement
 >) => {
-  return <p {...rest}>{children}</p>
+	return <p {...rest}>{children}</p>
 }

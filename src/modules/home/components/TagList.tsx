@@ -13,7 +13,7 @@ const TagList = async () => {
 			<Heading level={2}>Tags</Heading>
 			{tags.map((tag) => (
 				<Badge size="large" variant="secondary" key={tag.name}>
-					{`#${tag.name}`}
+					#{tag.name}
 				</Badge>
 			))}
 		</Container>

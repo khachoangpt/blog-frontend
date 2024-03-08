@@ -4,7 +4,7 @@ import { useBlogListStore } from '@/store/blog'
 import BlogItem from './BlogItem'
 
 const BlogList = async () => {
-	Promise.all([await getBlogList({ order: ['created_at'] })])
+	Promise.all([await getBlogList()])
 	const blogs = useBlogListStore.getState()
 
 	return (

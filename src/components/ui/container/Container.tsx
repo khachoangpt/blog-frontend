@@ -1,8 +1,8 @@
-import { DetailedHTMLProps, HTMLAttributes } from 'react'
+import type { DetailedHTMLProps, HTMLAttributes } from 'react'
 
 export const Container = ({
-  children,
-  ...rest
+	children,
+	...rest
 }: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>) => {
-  return <div {...rest}>{children}</div>
+	return <div {...rest}>{children}</div>
 }

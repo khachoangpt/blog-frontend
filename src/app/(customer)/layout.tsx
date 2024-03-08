@@ -1,14 +1,12 @@
-import './globals.css'
-
-import type { Metadata } from 'next'
-import { cookies } from 'next/headers'
-
+import '@/app/globals.css'
 import { Container } from '@/components/ui/container'
 import { Toaster } from '@/components/ui/sonner'
 import { fontSans } from '@/configs/font'
 import { THEME } from '@/constants'
 import { cn } from '@/lib/utils'
 import { Header } from '@/modules/layout/header'
+import type { Metadata } from 'next'
+import { cookies } from 'next/headers'
 import type { ReactNode } from 'react'
 
 export const metadata: Metadata = {

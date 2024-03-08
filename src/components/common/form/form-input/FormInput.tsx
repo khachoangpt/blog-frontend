@@ -1,5 +1,3 @@
-import type { ChangeEventHandler, HTMLInputTypeAttribute } from 'react'
-
 import {
 	FormControl,
 	FormDescription,
@@ -10,6 +8,7 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
+import type { ChangeEventHandler, HTMLInputTypeAttribute } from 'react'
 
 type Props = {
 	label?: string

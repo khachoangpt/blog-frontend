@@ -1,5 +1,3 @@
-import type { CheckedState } from '@radix-ui/react-checkbox'
-
 import { CheckboxBase } from '@/components/ui/checkbox'
 import { Container } from '@/components/ui/container'
 import {
@@ -9,6 +7,7 @@ import {
 	FormMessage,
 } from '@/components/ui/form'
 import { Label } from '@/components/ui/label'
+import type { CheckedState } from '@radix-ui/react-checkbox'
 
 type Props = {
 	id: string

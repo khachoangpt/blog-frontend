@@ -1,6 +1,12 @@
 import type { PageMeta } from '@/types/routes.types'
 
 export const pageList = {
+	admin: {
+		title: 'Admin',
+		href: '/admin',
+		isAuth: true,
+		pattern: ['admin'],
+	},
 	blogList: {
 		title: 'Blog',
 		href: '/blog',

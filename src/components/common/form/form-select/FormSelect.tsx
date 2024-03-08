@@ -8,7 +8,6 @@ import {
 	FormMessage,
 } from '@/components/ui/form'
 import type { SelectOptions } from '@/types'
-
 import { Select } from '../../select'
 
 type Props = {

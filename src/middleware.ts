@@ -8,6 +8,7 @@ export async function middleware(request: NextRequest) {
 	const cookies = request.cookies
 	const theme = cookies.get(COOKIES.THEME)?.value
 	const isAuth = cookies.get(COOKIES.IS_AUTH)?.value
+	const role = cookies.get(COOKIES.ROLE)?.value
 	const isMaintenance = process.env.NEXT_PUBLIC_MAINTENANCE_MODE
 
 	// check route is exist
@@ -15,7 +16,16 @@ export async function middleware(request: NextRequest) {
 	if (!requestIsRouter) {
 		return NextResponse.next()
 	}
-	// check route is auth and customer logged in
+	// access to admin page with role customer
+	if (requestIsRouter.pattern.at(0) === 'admin' && role !== 'admin') {
+		const redirectUrl = new URL(pageList.home.href, request.url)
+		return NextResponse.redirect(redirectUrl)
+	}
+	// access to admin page with role admin
+	if (requestIsRouter.pattern.at(0) === 'admin' && role === 'admin') {
+		return NextResponse.next()
+	}
+	// check route is auth and customer not logged in
 	if (isAuth !== 'true' && requestIsRouter.isAuth) {
 		const redirectUrl = new URL(pageList.login.href, request.url)
 		return NextResponse.redirect(redirectUrl)
@@ -25,8 +35,8 @@ export async function middleware(request: NextRequest) {
 		const redirectUrl = new URL(pageList.home.href, request.url)
 		return NextResponse.redirect(redirectUrl)
 	}
-	// maintenance mode is enabled
 	if (isMaintenance === 'true' && url.pathname !== pageList.maintenance.href) {
+		// maintenance mode is enabled
 		const redirectUrl = new URL(pageList.maintenance.href, request.url)
 		return NextResponse.redirect(redirectUrl)
 	}

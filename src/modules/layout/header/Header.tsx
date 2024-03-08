@@ -1,9 +1,7 @@
-import { cookies } from 'next/headers'
-
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Container } from '@/components/ui/container'
 import { COOKIES, type THEME } from '@/constants'
-
+import { cookies } from 'next/headers'
 import { MenuHeader } from '.'
 import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton'
