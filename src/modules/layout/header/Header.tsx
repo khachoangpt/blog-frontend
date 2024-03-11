@@ -12,13 +12,13 @@ type Props = {
 }
 
 export const Header = ({ theme }: Props) => {
-	const isLogin = cookies().get(COOKIES.JWT)?.value
+	const jwt = cookies().get(COOKIES.JWT)?.value
 
 	return (
 		<Container className="flex items-center justify-between border-b-2 px-8 py-4 shadow-2xl">
 			<MenuHeader />
 			<Container className="flex items-start gap-x-5">
-				{isLogin === 'true' ? (
+				{jwt ? (
 					<>
 						<LogoutButton />
 						<Avatar>
