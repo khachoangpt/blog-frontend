@@ -1,4 +1,4 @@
-import type { Blog } from '$/backend'
+import type { GetBlogDetailResponse } from '$/backend'
 import {
 	Card,
 	CardContent,
@@ -10,7 +10,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 type Props = {
-	blog: Blog
+	blog: GetBlogDetailResponse
 }
 
 const BlogItem = ({ blog }: Props) => {

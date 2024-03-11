@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export const $RegisterDTO = {
+export const $RegisterResponse = {
   properties: {
     id: {
       type: 'string',

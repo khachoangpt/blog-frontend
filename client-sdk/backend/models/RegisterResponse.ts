@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CustomerStatus } from './CustomerStatus';
-export type RegisterDTO = {
+export type RegisterResponse = {
   /**
    * Id of customer
    */

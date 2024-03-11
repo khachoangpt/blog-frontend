@@ -13,9 +13,9 @@ type GetBlogsQuery = {
 export const getBlogList = async (query?: GetBlogsQuery) => {
 	noStore()
 	try {
-		const { blogs, count } = await BlogService.getBlogs(query ?? {})
-		useBlogListStore.setState(blogs ?? [], true)
-		return { blogs: blogs ?? [], count: count ?? 0 }
+		const { blogs, total } = await BlogService.getBlogs(query ?? {})
+		useBlogListStore.setState({ blogs: blogs ?? [], total }, true)
+		return { blogs: blogs ?? [], total }
 	} catch {
 		return { error: 'Something wrong when get blog list.' }
 	}

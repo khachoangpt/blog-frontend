@@ -11,7 +11,7 @@ const TagList = async () => {
 	return (
 		<Container className="space-x-2 space-y-5">
 			<Heading level={2}>Tags</Heading>
-			{tags.map((tag) => (
+			{tags?.tags?.map((tag) => (
 				<Badge size="large" variant="secondary" key={tag.name}>
 					#{tag.name}
 				</Badge>

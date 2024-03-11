@@ -1,13 +1,15 @@
 import { type NextRequest, NextResponse } from 'next/server'
+import { getMe } from './actions/customer/get-me'
 import { COOKIES, THEME, pageList } from './constants'
 import { findRouteByPathname } from './utils/find-route'
 
+// biome-ignore lint/complexity/noExcessiveCognitiveComplexity: <explanation>
 export async function middleware(request: NextRequest) {
 	const url = request.nextUrl
 	const response = NextResponse.next()
 	const cookies = request.cookies
 	const theme = cookies.get(COOKIES.THEME)?.value
-	const isAuth = cookies.get(COOKIES.IS_AUTH)?.value
+	const jwt = cookies.get(COOKIES.JWT)?.value
 	const role = cookies.get(COOKIES.ROLE)?.value
 	const isMaintenance = process.env.NEXT_PUBLIC_MAINTENANCE_MODE
 
@@ -25,13 +27,23 @@ export async function middleware(request: NextRequest) {
 	if (requestIsRouter.pattern.at(0) === 'admin' && role === 'admin') {
 		return NextResponse.next()
 	}
+	// get current customer
+	if (jwt && requestIsRouter.isAuth) {
+		const { error } = await getMe()
+		if (error) {
+			const redirectUrl = new URL(pageList.login.href, request.url)
+			const responseJwt = NextResponse.redirect(redirectUrl)
+			responseJwt.cookies.delete(COOKIES.JWT)
+			return responseJwt
+		}
+	}
 	// check route is auth and customer not logged in
-	if (isAuth !== 'true' && requestIsRouter.isAuth) {
+	if (!jwt && requestIsRouter.isAuth) {
 		const redirectUrl = new URL(pageList.login.href, request.url)
 		return NextResponse.redirect(redirectUrl)
 	}
 	// access to login page while logged in
-	if (isAuth === 'true' && requestIsRouter.href === pageList.login.href) {
+	if (jwt && requestIsRouter.href === pageList.login.href) {
 		const redirectUrl = new URL(pageList.home.href, request.url)
 		return NextResponse.redirect(redirectUrl)
 	}

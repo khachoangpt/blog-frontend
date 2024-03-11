@@ -3,7 +3,8 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateTagParams } from '../models/CreateTagParams';
-import type { Tag } from '../models/Tag';
+import type { CreateTagResponse } from '../models/CreateTagResponse';
+import type { GetTagListResponse } from '../models/GetTagListResponse';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
@@ -11,14 +12,14 @@ export class TagService {
   /**
    * Create a tag
    * Create a tag
-   * @returns Tag A tag
+   * @returns CreateTagResponse A tag
    * @throws ApiError
    */
   public static createTag({
     requestBody,
   }: {
     requestBody?: CreateTagParams,
-  }): CancelablePromise<Tag> {
+  }): CancelablePromise<CreateTagResponse> {
     return __request(OpenAPI, {
       method: 'POST',
       url: '/customer/tag',
@@ -29,7 +30,7 @@ export class TagService {
   /**
    * Get tag list
    * Get tag list
-   * @returns any An array of tags
+   * @returns GetTagListResponse An array of tags
    * @throws ApiError
    */
   public static getTags({
@@ -59,16 +60,7 @@ export class TagService {
      * Order
      */
     order?: Array<string>,
-  }): CancelablePromise<{
-    /**
-     * An array of tags
-     */
-    tags?: Array<Tag>;
-    /**
-     * Total tags
-     */
-    count?: number;
-  }> {
+  }): CancelablePromise<GetTagListResponse> {
     return __request(OpenAPI, {
       method: 'GET',
       url: '/customer/tag',

@@ -2,8 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { Tag } from './Tag';
-export type Blog = {
+export type GetBlogDetailResponse = {
   /**
    * Id of blog
    */
@@ -24,13 +23,12 @@ export type Blog = {
    * Content of blog
    */
   content?: string;
-  tags?: Array<Tag>;
   /**
-   * Check blog is public or not
+   * Is published
    */
-  is_published?: string;
+  is_published?: boolean;
   /**
-   * Published at of blog
+   * Published at
    */
   published_at?: string;
   /**
@@ -41,5 +39,9 @@ export type Blog = {
    * Updated at
    */
   updated_at?: string;
+  /**
+   * Deleted at
+   */
+  deleted_at?: string;
 };
 

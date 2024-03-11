@@ -15,7 +15,7 @@ export const getTagList = async (query?: GetTagsQuery) => {
 	noStore()
 	try {
 		const { tags, count } = await TagService.getTags(query ?? {})
-		useTagListStore.setState(tags ?? [], true)
+		useTagListStore.setState({ tags: tags ?? [], count }, true)
 		return { tags: tags ?? [], count: count ?? 0 }
 	} catch {
 		return { error: 'Something wrong when get tag list.' }

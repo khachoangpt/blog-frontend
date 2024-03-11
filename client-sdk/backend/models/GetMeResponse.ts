@@ -3,35 +3,38 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CustomerStatus } from './CustomerStatus';
-export type LoginDTO = {
+export type GetMeResponse = {
   /**
-   * Id of customer
+   * The id of the customer
    */
   id?: string;
   /**
-   * Date of customer created
+   * The date time of customer creation
    */
   created_at?: string;
   /**
-   * Date of customer updated
+   * The date time of customer update
    */
   updated_at?: string;
   /**
-   * First name of customer
+   * The first name of customer
    */
   first_name?: string;
   /**
-   * Middle name of customer
+   * The middle name of customer
    */
   middle_name?: string;
   /**
-   * Last name of customer
+   * The last name of customer
    */
   last_name?: string;
   /**
-   * Email of customer
+   * The email of customer
    */
   email?: string;
+  /**
+   * The status of the customer
+   */
   status?: CustomerStatus;
 };
 

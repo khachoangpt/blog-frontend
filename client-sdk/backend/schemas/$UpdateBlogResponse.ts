@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export const $Blog = {
+export const $UpdateBlogResponse = {
   properties: {
     id: {
       type: 'string',
@@ -24,27 +24,29 @@ export const $Blog = {
       type: 'string',
       description: `Content of blog`,
     },
-    tags: {
-      type: 'array',
-      contains: {
-        type: 'Tag',
-      },
-    },
     is_published: {
-      type: 'string',
-      description: `Check blog is public or not`,
+      type: 'boolean',
+      description: `True if blog is published`,
     },
     published_at: {
       type: 'string',
-      description: `Published at of blog`,
+      description: `Date when blog is published`,
+      format: 'date-time',
     },
     created_at: {
       type: 'string',
-      description: `Created at`,
+      description: `Date when blog is created`,
+      format: 'date-time',
     },
     updated_at: {
       type: 'string',
-      description: `Updated at`,
+      description: `Date when blog is updated`,
+      format: 'date-time',
+    },
+    deleted_at: {
+      type: 'string',
+      description: `Date when blog is deleted`,
+      format: 'date-time',
     },
   },
 } as const;

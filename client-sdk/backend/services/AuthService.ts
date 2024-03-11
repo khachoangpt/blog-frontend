@@ -2,10 +2,10 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { LoginDTO } from '../models/LoginDTO';
 import type { LoginParams } from '../models/LoginParams';
-import type { RegisterDTO } from '../models/RegisterDTO';
+import type { LoginResponse } from '../models/LoginResponse';
 import type { RegisterParams } from '../models/RegisterParams';
+import type { RegisterResponse } from '../models/RegisterResponse';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
@@ -13,14 +13,14 @@ export class AuthService {
   /**
    * Login
    * Login
-   * @returns LoginDTO Login DTO
+   * @returns LoginResponse Login response
    * @throws ApiError
    */
   public static login({
     requestBody,
   }: {
     requestBody?: LoginParams,
-  }): CancelablePromise<LoginDTO> {
+  }): CancelablePromise<LoginResponse> {
     return __request(OpenAPI, {
       method: 'POST',
       url: '/customer/auth/login',
@@ -31,14 +31,14 @@ export class AuthService {
   /**
    * Register
    * Register
-   * @returns RegisterDTO Register DTO
+   * @returns RegisterResponse Register response
    * @throws ApiError
    */
   public static register({
     requestBody,
   }: {
     requestBody?: RegisterParams,
-  }): CancelablePromise<RegisterDTO> {
+  }): CancelablePromise<RegisterResponse> {
     return __request(OpenAPI, {
       method: 'POST',
       url: '/customer/auth/register',

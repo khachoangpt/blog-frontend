@@ -1,5 +1,5 @@
 export const COOKIES = {
-	IS_AUTH: 'isAuth',
+	JWT: 'jwt',
 	THEME: 'theme',
 	ROLE: 'role',
 }

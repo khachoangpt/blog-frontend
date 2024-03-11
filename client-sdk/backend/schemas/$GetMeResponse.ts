@@ -2,38 +2,41 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export const $LoginDTO = {
+export const $GetMeResponse = {
   properties: {
     id: {
       type: 'string',
-      description: `Id of customer`,
+      description: `The id of the customer`,
     },
     created_at: {
       type: 'string',
-      description: `Date of customer created`,
+      description: `The date time of customer creation`,
+      format: 'date-time',
     },
     updated_at: {
       type: 'string',
-      description: `Date of customer updated`,
+      description: `The date time of customer update`,
+      format: 'date-time',
     },
     first_name: {
       type: 'string',
-      description: `First name of customer`,
+      description: `The first name of customer`,
     },
     middle_name: {
       type: 'string',
-      description: `Middle name of customer`,
+      description: `The middle name of customer`,
     },
     last_name: {
       type: 'string',
-      description: `Last name of customer`,
+      description: `The last name of customer`,
     },
     email: {
       type: 'string',
-      description: `Email of customer`,
+      description: `The email of customer`,
     },
     status: {
       type: 'CustomerStatus',
+      description: `The status of the customer`,
     },
   },
 } as const;

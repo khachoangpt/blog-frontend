@@ -1,6 +1,8 @@
-import type { Blog } from '$/backend'
+import type { GetBlogDetailResponse, GetListBlogResponse } from '$/backend'
 import { create } from 'zustand'
 
-export const useBlogListStore = create<Blog[]>(() => [])
+export const useBlogListStore = create<GetListBlogResponse | null>(() => null)
 
-export const useBlogDetailStore = create<Blog | null>(() => null)
+export const useBlogDetailStore = create<GetBlogDetailResponse | null>(
+	() => null,
+)

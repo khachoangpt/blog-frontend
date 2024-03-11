@@ -21,8 +21,8 @@ const useLoginController = () => {
 	} = loginForm
 
 	const handleLogin: SubmitHandler<LoginParams> = async (data) => {
-		const { loginDTO, error } = await login(data)
-		if (loginDTO) {
+		const { loginResponse, error } = await login(data)
+		if (loginResponse) {
 			toast.success('Login success')
 			router.push(pageList.home.href)
 		}

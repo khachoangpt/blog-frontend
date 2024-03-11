@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export const $Tag = {
+export const $CreateTagResponse = {
   properties: {
     id: {
       type: 'string',
@@ -11,20 +11,6 @@ export const $Tag = {
     name: {
       type: 'string',
       description: `Name of tag`,
-    },
-    created_at: {
-      type: 'string',
-      description: `Created at`,
-    },
-    updated_at: {
-      type: 'string',
-      description: `Updated at`,
-    },
-    blogs: {
-      type: 'array',
-      contains: {
-        type: 'Blog',
-      },
     },
   },
 } as const;

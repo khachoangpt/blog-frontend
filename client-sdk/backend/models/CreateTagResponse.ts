@@ -2,8 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { Blog } from './Blog';
-export type Tag = {
+export type CreateTagResponse = {
   /**
    * Id of tag
    */
@@ -12,14 +11,5 @@ export type Tag = {
    * Name of tag
    */
   name?: string;
-  /**
-   * Created at
-   */
-  created_at?: string;
-  /**
-   * Updated at
-   */
-  updated_at?: string;
-  blogs?: Array<Blog>;
 };
 

@@ -2,9 +2,13 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { Blog } from '../models/Blog';
 import type { CreateBlogParams } from '../models/CreateBlogParams';
+import type { CreateBlogResponse } from '../models/CreateBlogResponse';
+import type { GetBlogDetailResponse } from '../models/GetBlogDetailResponse';
+import type { GetListBlogResponse } from '../models/GetListBlogResponse';
+import type { PublishBlogResponse } from '../models/PublishBlogResponse';
 import type { UpdateBlogParams } from '../models/UpdateBlogParams';
+import type { UpdateBlogResponse } from '../models/UpdateBlogResponse';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
@@ -12,14 +16,14 @@ export class BlogService {
   /**
    * Create a blog
    * Create a blog
-   * @returns Blog A blog
+   * @returns CreateBlogResponse A blog
    * @throws ApiError
    */
   public static createBlog({
     requestBody,
   }: {
     requestBody?: CreateBlogParams,
-  }): CancelablePromise<Blog> {
+  }): CancelablePromise<CreateBlogResponse> {
     return __request(OpenAPI, {
       method: 'POST',
       url: '/customer/blog',
@@ -30,7 +34,7 @@ export class BlogService {
   /**
    * Get blog list
    * Get blog list
-   * @returns any An array of blogs
+   * @returns GetListBlogResponse An array of blogs
    * @throws ApiError
    */
   public static getBlogs({
@@ -60,16 +64,7 @@ export class BlogService {
      * Order
      */
     order?: Array<string>,
-  }): CancelablePromise<{
-    /**
-     * An array of blogs
-     */
-    blogs?: Array<Blog>;
-    /**
-     * Total blogs
-     */
-    count?: number;
-  }> {
+  }): CancelablePromise<GetListBlogResponse> {
     return __request(OpenAPI, {
       method: 'GET',
       url: '/customer/blog',
@@ -85,14 +80,14 @@ export class BlogService {
   /**
    * Update a blog
    * Update a blog
-   * @returns Blog A blog
+   * @returns UpdateBlogResponse A blog
    * @throws ApiError
    */
   public static updateBlog({
     requestBody,
   }: {
     requestBody?: UpdateBlogParams,
-  }): CancelablePromise<Blog> {
+  }): CancelablePromise<UpdateBlogResponse> {
     return __request(OpenAPI, {
       method: 'PUT',
       url: '/customer/blog',
@@ -103,7 +98,7 @@ export class BlogService {
   /**
    * Get blog detail
    * Get blog detail
-   * @returns Blog A blog
+   * @returns GetBlogDetailResponse A blog
    * @throws ApiError
    */
   public static getBlogDetail({
@@ -113,7 +108,7 @@ export class BlogService {
      * Id of blog
      */
     id: string,
-  }): CancelablePromise<Blog> {
+  }): CancelablePromise<GetBlogDetailResponse> {
     return __request(OpenAPI, {
       method: 'GET',
       url: '/customer/blog/{id}',
@@ -125,7 +120,7 @@ export class BlogService {
   /**
    * Publish blog
    * Publish blog
-   * @returns Blog A blog
+   * @returns PublishBlogResponse A blog
    * @throws ApiError
    */
   public static publishBlog({
@@ -135,7 +130,7 @@ export class BlogService {
      * Id of blog
      */
     id: string,
-  }): CancelablePromise<Blog> {
+  }): CancelablePromise<PublishBlogResponse> {
     return __request(OpenAPI, {
       method: 'PATCH',
       url: '/customer/blog/{id}',
