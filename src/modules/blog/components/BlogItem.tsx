@@ -24,6 +24,8 @@ const BlogItem = ({ blog }: Props) => {
 							alt={blog.title ?? ''}
 							fill
 							className="w-full rounded-md"
+							priority
+							sizes="100"
 						/>
 					</Container>
 					<Container className="space-y-4">
