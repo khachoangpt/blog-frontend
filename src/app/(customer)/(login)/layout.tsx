@@ -1,11 +1,10 @@
+import { getTheme } from '@/actions'
 import '@/app/globals.css'
 import { Container } from '@/components/ui/container'
 import { Toaster } from '@/components/ui/sonner'
 import { fontSans } from '@/configs/font'
-import { COOKIES, THEME } from '@/constants'
 import { cn } from '@/lib/utils'
 import type { Metadata } from 'next'
-import { cookies } from 'next/headers'
 import type { ReactNode } from 'react'
 
 export const metadata: Metadata = {
@@ -18,7 +17,7 @@ type MainLayoutProps = Readonly<{
 }>
 
 export default async function RootLayout({ children }: MainLayoutProps) {
-	const theme = (cookies().get(COOKIES.THEME)?.value ?? THEME.DARK) as THEME
+	const theme = getTheme()
 
 	return (
 		<html lang="en" className={theme}>

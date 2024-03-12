@@ -1,3 +1,4 @@
+import { getTheme } from '@/actions'
 import '@/app/globals.css'
 import { Container } from '@/components/ui/container'
 import { Toaster } from '@/components/ui/sonner'
@@ -19,7 +20,7 @@ type MainLayoutProps = Readonly<{
 }>
 
 export default async function RootLayout({ children }: MainLayoutProps) {
-	const theme = (cookies().get(COOKIES.THEME)?.value ?? THEME.DARK) as THEME
+	const theme = getTheme()
 
 	return (
 		<html lang="en" className={theme}>

@@ -11,7 +11,8 @@ type Props = {
 
 const ThemeButton = ({ theme }: Props) => {
 	const setTheme = async () => {
-		changeTheme(theme === THEME.DARK ? THEME.LIGHT : THEME.DARK)
+		const themeChange = theme === THEME.DARK ? THEME.LIGHT : THEME.DARK
+		changeTheme(themeChange)
 	}
 
 	return (
