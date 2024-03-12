@@ -7,7 +7,7 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"oas:sdk:store": "pnpm openapi -i ../blog-backend/docs/spec.customer.json -o ./client-sdk/backend -c axios --useOptions --exportSchemas true --indent 2 --request ./client-sdk/request/index.ts",
+		"oas:sdk:store": "pnpm openapi -i ../blog-backend/docs/spec.customer.json -o ./client-sdk/backend -c fetch --useOptions --exportSchemas true --indent 2 --request ./client-sdk/request/index.ts",
 		"openapi:generate": "pnpm oas:sdk:store",
 		"prepare": "husky"
 	},

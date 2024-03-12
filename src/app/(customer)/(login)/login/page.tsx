@@ -5,7 +5,7 @@ import LoginForm from '@/modules/login/components/LoginForm'
 
 const Page = () => {
 	return (
-		<Container>
+		<Container className="w-full">
 			<Card className="m-auto max-w-[400px]">
 				<CardHeader className="text-center">
 					<Heading level={1}>Login</Heading>

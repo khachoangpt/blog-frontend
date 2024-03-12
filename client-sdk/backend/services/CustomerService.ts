@@ -9,13 +9,14 @@ import { request as __request } from '../core/request';
 export class CustomerService {
   /**
    * Get current customer
+   * Get current customer
    * @returns GetMeResponse Get current customer success
    * @throws ApiError
    */
-  public static getCustomer(): CancelablePromise<GetMeResponse> {
+  public static getMe(): CancelablePromise<GetMeResponse> {
     return __request(OpenAPI, {
       method: 'GET',
-      url: '/customer',
+      url: '/customer/me',
     });
   }
 }
