@@ -2,49 +2,9 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { GetListBlogResponseBlog } from './GetListBlogResponseBlog';
 export type GetListBlogResponse = {
-  blogs?: Array<{
-    /**
-     * Id of blog
-     */
-    id?: string;
-    /**
-     * Title of blog
-     */
-    title?: string;
-    /**
-     * Summary of blog
-     */
-    summary?: string;
-    /**
-     * Thumbnail of blog
-     */
-    thumbnail?: string;
-    /**
-     * Content of blog
-     */
-    content?: string;
-    /**
-     * Is published
-     */
-    is_published?: boolean;
-    /**
-     * Published at
-     */
-    published_at?: string;
-    /**
-     * Created at
-     */
-    created_at?: string;
-    /**
-     * Updated at
-     */
-    updated_at?: string;
-    /**
-     * Deleted at
-     */
-    deleted_at?: string;
-  }>;
+  blogs?: Array<GetListBlogResponseBlog>;
   /**
    * Total blogs
    */

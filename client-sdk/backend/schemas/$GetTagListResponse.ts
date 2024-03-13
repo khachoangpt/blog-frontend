@@ -7,31 +7,13 @@ export const $GetTagListResponse = {
     tags: {
       type: 'array',
       contains: {
-        properties: {
-          id: {
-            type: 'string',
-          },
-          name: {
-            type: 'string',
-          },
-          created_at: {
-            type: 'string',
-            format: 'date-time',
-          },
-          updated_at: {
-            type: 'string',
-            format: 'date-time',
-          },
-          deleted_at: {
-            type: 'string',
-            isNullable: true,
-            format: 'date-time',
-          },
-        },
+        type: 'GetTagListResponseTag',
       },
     },
     count: {
       type: 'number',
+      description: `Total tags`,
+      format: 'int32',
     },
   },
 } as const;
