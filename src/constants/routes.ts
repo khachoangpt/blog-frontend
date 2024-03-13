@@ -15,7 +15,7 @@ export const pageList = {
 	},
 	blogDetail: (config?: { id?: string }) => ({
 		title: 'Blog Detail',
-		href: `/blog${config?.id}`,
+		href: `/blog/${config?.id}`,
 		isAuth: true,
 		pattern: ['blog', ''],
 	}),
