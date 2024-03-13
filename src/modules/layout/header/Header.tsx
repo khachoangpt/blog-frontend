@@ -1,3 +1,4 @@
+import { getMe } from '@/actions/customer/get-me'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Container } from '@/components/ui/container'
 import { COOKIES, type THEME } from '@/constants'
@@ -11,8 +12,9 @@ type Props = {
 	theme: THEME
 }
 
-export const Header = ({ theme }: Props) => {
+export const Header = async ({ theme }: Props) => {
 	const jwt = cookies().get(COOKIES.JWT)?.value
+	const { customer } = await getMe()
 
 	return (
 		<Container className="flex items-center justify-between border-b-2 px-8 py-4 shadow-2xl">
@@ -23,7 +25,7 @@ export const Header = ({ theme }: Props) => {
 						<LogoutButton />
 						<Avatar>
 							<AvatarImage src="/#" />
-							<AvatarFallback>A</AvatarFallback>
+							<AvatarFallback>{customer?.first_name?.at(0)}</AvatarFallback>
 						</Avatar>
 					</>
 				) : (
