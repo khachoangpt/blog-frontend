@@ -2,36 +2,12 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CustomerStatus } from './CustomerStatus';
+import type { RegisterResponseCustomer } from './RegisterResponseCustomer';
 export type RegisterResponse = {
+  customer?: RegisterResponseCustomer;
   /**
-   * Id of customer
+   * JWT token
    */
-  id?: string;
-  /**
-   * Date of customer created
-   */
-  created_at?: string;
-  /**
-   * Date of customer updated
-   */
-  updated_at?: string;
-  /**
-   * First name of customer
-   */
-  first_name?: string;
-  /**
-   * Middle name of customer
-   */
-  middle_name?: string;
-  /**
-   * Last name of customer
-   */
-  last_name?: string;
-  /**
-   * Email of customer
-   */
-  email?: string;
-  status?: CustomerStatus;
+  token?: string;
 };
 

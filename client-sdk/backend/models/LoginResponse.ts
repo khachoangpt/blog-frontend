@@ -2,39 +2,9 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CustomerStatus } from './CustomerStatus';
+import type { LoginResponseCustomer } from './LoginResponseCustomer';
 export type LoginResponse = {
-  customer?: {
-    /**
-     * Id of customer
-     */
-    id?: string;
-    /**
-     * Created at of customer
-     */
-    created_at?: string;
-    /**
-     * Updated at of customer
-     */
-    updated_at?: string;
-    /**
-     * First name of customer
-     */
-    first_name?: string;
-    /**
-     * Middle name of customer
-     */
-    middle_name?: string;
-    /**
-     * Last name of customer
-     */
-    last_name?: string;
-    /**
-     * Email of customer
-     */
-    email?: string;
-    status?: CustomerStatus;
-  };
+  customer?: LoginResponseCustomer;
   /**
    * Token of customer
    */
