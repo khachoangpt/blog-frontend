@@ -3,28 +3,17 @@ import { getMe } from './actions/customer/get-me'
 import { COOKIES, THEME, pageList } from './constants'
 import { findRouteByPathname } from './utils/find-route'
 
-// biome-ignore lint/complexity/noExcessiveCognitiveComplexity: <explanation>
 export async function middleware(request: NextRequest) {
 	const url = request.nextUrl
 	const response = NextResponse.next()
 	const cookies = request.cookies
 	const theme = cookies.get(COOKIES.THEME)?.value
 	const jwt = cookies.get(COOKIES.JWT)?.value
-	const role = cookies.get(COOKIES.ROLE)?.value
 	const isMaintenance = process.env.NEXT_PUBLIC_MAINTENANCE_MODE
 
 	// check route is exist
 	const requestIsRouter = await findRouteByPathname(url.pathname, {})
 	if (!requestIsRouter) {
-		return NextResponse.next()
-	}
-	// access to admin page with role customer
-	if (requestIsRouter.pattern.at(0) === 'admin' && role !== 'admin') {
-		const redirectUrl = new URL(pageList.home.href, request.url)
-		return NextResponse.redirect(redirectUrl)
-	}
-	// access to admin page with role admin
-	if (requestIsRouter.pattern.at(0) === 'admin' && role === 'admin') {
 		return NextResponse.next()
 	}
 	// get current customer
