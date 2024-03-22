@@ -11,9 +11,6 @@ export default async function Home() {
 				<TagList />
 				<Container className="mt-20 space-y-4">
 					<Heading level={2}>New Blogs</Heading>
-					<Button size="sm" variant="transparent">
-						Button
-					</Button>
 					<BlogList />
 				</Container>
 			</Container>
