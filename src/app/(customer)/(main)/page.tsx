@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
 import { Heading } from '@/components/ui/heading'
 import BlogList from '@/modules/blog/components/BlogList'
@@ -10,6 +11,9 @@ export default async function Home() {
 				<TagList />
 				<Container className="mt-20 space-y-4">
 					<Heading level={2}>New Blogs</Heading>
+					<Button size="sm" variant="transparent">
+						Button
+					</Button>
 					<BlogList />
 				</Container>
 			</Container>

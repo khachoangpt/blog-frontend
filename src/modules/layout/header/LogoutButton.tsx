@@ -13,7 +13,7 @@ const LogoutButton = () => {
 		router.push(pageList.home.href)
 	}
 	return (
-		<Button variant="destructive" onClick={handleLogout}>
+		<Button variant="danger" onClick={handleLogout}>
 			Logout
 		</Button>
 	)

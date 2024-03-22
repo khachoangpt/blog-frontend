@@ -22,6 +22,41 @@
     --background-field-hover: 220, 14%, 96%, 1;
 
     --foreground-base: 224, 71%, 4%, 1;
+    --foreground-on-color: 0, 100%, 100%, 1;
+    --foreground-on-inverted: 0, 100%, 100%, 1;
+    --foreground-subtle: 215, 14%, 34%, 1;
+    --foreground-interactive: 217, 91%, 60%, 1;
+    --foreground-interactive-hover: 221, 83%, 53%, 1;
+    --foreground-muted: 218, 11%, 65%, 1;
+    --foreground-error: 347, 77%, 50%, 1;
+    --foreground-disable: 216, 12%, 84%, 1;
+
+    --border-base: 220, 13%, 91%, 1;
+    --border-interactive: 217, 91%, 60%, 1;
+    --border-transparent: 224, 71%, 4%, 0;
+    --border-strong: 216, 12%, 84%, 1;
+    --border-error: 347, 77%, 50%, 1;
+    --border-loud: 224, 71%, 4%, 1;
+    --border-danger: 345, 83%, 41%, 1;
+
+    --button-inverted: 224, 71%, 4%, 1;
+    --button-inverted-hover: 221, 39%, 11%, 1;
+    --button-inverted-pressed: 215, 28%, 17%, 1;
+    --button-inverted-gradient-from: 0, 0%, 100%, 0.16;
+    --button-inverted-gradient-to: 0, 0%, 100%, 0;
+    --button-neutral: 0, 0%, 100%, 1;
+    --button-neutral-hover: 220, 14%, 96%, 1;
+    --button-neutral-pressed: 220, 13%, 91%, 1;
+    --button-neutral-gradient-from: 224, 71%, 4%, 0;
+    --button-neutral-gradient-to: 224, 71%, 4%, 0.03;
+    --button-danger: 347, 77%, 50%, 1;
+    --button-danger-hover: 345, 83%, 41%, 1;
+    --button-danger-pressed: 343, 80%, 35%, 1;
+    --button-danger-gradient-from: 0, 0%, 100%, 0.16;
+    --button-danger-gradient-to: 0, 0%, 100%, 0;
+    --button-transparent: 0, 0%, 100%, 0.01;
+    --button-transparent-hover: 220, 14%, 96%, 1;
+    --button-transparent-pressed: 220, 13%, 91%, 1;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -70,6 +105,41 @@
     --background-field-hover: 223, 7%, 19%, 1;
 
     --foreground-base: 220, 9%, 94%, 1;
+    --foreground-on-color: 0, 100%, 100%, 1;
+    --foreground-on-inverted: 0, 0%, 4%, 1;
+    --foreground-subtle: 218, 7%, 70%, 1;
+    --foreground-interactive: 213, 94%, 68%, 1;
+    --foreground-interactive-hover: 217, 91%, 60%, 1;
+    --foreground-muted: 219, 6%, 44%, 1;
+    --foreground-error: 351, 95%, 71%, 1;
+    --foreground-disable: 217, 6%, 25%, 1;
+
+    --border-base: 223, 7%, 19%, 1;
+    --border-interactive: 213, 94%, 68%, 1;
+    --border-transparent: 0, 100%, 100%, 0;
+    --border-strong: 223, 6%, 22%, 1;
+    --border-error: 350, 89%, 60%, 1;
+    --border-loud: 220, 9%, 94%, 1;
+    --border-danger: 345, 83%, 41%, 1;
+
+    --button-inverted: 220, 9%, 94%, 1;
+    --button-inverted-hover: 0, 0%, 100%, 1;
+    --button-inverted-pressed: 220, 9%, 94%, 1;
+    --button-inverted-gradient-from:  240, 4%, 10%, 0;
+    --button-inverted-gradient-to: 240, 4%, 10%, 0.12;
+    --button-neutral: 230, 7%, 16%, 1;
+    --button-neutral-hover: 223, 6%, 22%, 1;
+    --button-neutral-pressed: 218, 6%, 25%, 1;
+    --button-neutral-gradient-from:  0, 0%, 100%, 0.06;
+    --button-neutral-gradient-to: 0, 0%, 100%, 0;
+    --button-danger: 343, 80%, 35%, 1;
+    --button-danger-hover: 345, 83%, 41%, 1;
+    --button-danger-pressed: 347, 77%, 50%, 1;
+    --button-danger-gradient-from:  0, 0%, 100%, 0.1;
+    --button-danger-gradient-to: 0, 0%, 100%, 0;
+    --button-transparent: 0, 0%, 0%, 0.01;
+    --button-transparent-hover: 230, 7%, 16%, 1;
+    --button-transparent-pressed: 223, 7%, 19%, 1;
 
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;

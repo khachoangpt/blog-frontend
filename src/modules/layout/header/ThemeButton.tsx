@@ -16,7 +16,7 @@ const ThemeButton = ({ theme }: Props) => {
 	}
 
 	return (
-		<Button variant="ghost" onClick={setTheme}>
+		<Button variant="transparent" onClick={setTheme}>
 			{theme === THEME.DARK ? <MoonIcon /> : <SunIcon />}
 		</Button>
 	)
