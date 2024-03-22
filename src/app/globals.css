@@ -4,8 +4,24 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background-subtle: 210, 20%, 98%, 1;
+    --background-subtle-hover: 220, 14%, 96%, 1;
+    --background-subtle-pressed: 220, 13%, 91%, 1;
+    --background-base: 0, 100%, 100%, 1;
+    --background-base-hover: 210, 20%, 98%, 1;
+    --background-base-pressed: 220, 14%, 96%, 1;
+    --background-component: 210, 17%, 95%, 1;
+    --background-switch-off: 220, 13%, 91%, 1;
+    --background-switch-off-hover: 216, 12%, 84%, 1;
+    --background-interactive: 217, 91%, 60%, 1;
+    --background-overlay: 224, 71%, 4%, 0.4;
+    --background-disable: 220, 14%, 96%, 1;
+    --background-highlight: 214, 100%, 97%, 1;
+    --background-highlight-hover: 214, 95%, 93%, 1;
+    --background-field: 210, 20%, 98%, 1;
+    --background-field-hover: 220, 14%, 96%, 1;
+
+    --foreground-base: 224, 71%, 4%, 1;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -36,8 +52,24 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background-subtle: 240, 4%, 10%, 1;
+    --background-subtle-hover: 240, 7%, 11%, 1;
+    --background-subtle-pressed: 230, 7%, 16%, 1;
+    --background-base: 240, 7%, 11%, 1;
+    --background-base-hover: 230, 7%, 16%, 1;
+    --background-base-pressed: 223, 7%, 19%, 1;
+    --background-component: 230, 7%, 16%, 1;
+    --background-switch-off: 223, 6%, 22%, 1;
+    --background-switch-off-hover: 210, 7%, 29%, 1;
+    --background-interactive: 213, 94%, 68%, 1;
+    --background-overlay: 240, 4%, 10%, 0.7;
+    --background-disable: 230, 7%, 16%, 1;
+    --background-highlight: 226, 57%, 21%, 1;
+    --background-highlight-hover: 224, 64%, 33%, 1;
+    --background-field: 230, 7%, 16%, 1;
+    --background-field-hover: 223, 7%, 19%, 1;
+
+    --foreground-base: 220, 9%, 94%, 1;
 
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
@@ -71,6 +103,6 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-base text-foreground;
   }
 }

@@ -15,7 +15,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
 		<html lang="en" className={theme}>
 			<body
 				className={cn(
-					'min-h-screen bg-background font-sans antialiased',
+					'min-h-screen bg-base font-sans antialiased',
 					fontSans.variable,
 				)}
 			>
