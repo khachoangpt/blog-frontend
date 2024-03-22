@@ -26,6 +26,7 @@
 			},
 			"suspicious": { "noConsoleLog": "error" },
 			"correctness": {
+				"noUnusedImports": "error",
 				"noUnusedVariables": "error",
 				"noUndeclaredVariables": "error"
 			},
