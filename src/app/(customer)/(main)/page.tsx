@@ -1,4 +1,3 @@
-import { Button } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
 import { Heading } from '@/components/ui/heading'
 import BlogList from '@/modules/blog/components/BlogList'
