@@ -9,7 +9,7 @@ import {
 	alertVariants,
 } from './variants'
 
-const Alert = forwardRef<
+const AlertBase = forwardRef<
 	HTMLDivElement,
 	HTMLAttributes<HTMLDivElement> & VariantProps<typeof alertVariants>
 >(({ className, variant, ...props }, ref) => (
@@ -20,7 +20,7 @@ const Alert = forwardRef<
 		{...props}
 	/>
 ))
-Alert.displayName = 'Alert'
+AlertBase.displayName = 'AlertBase'
 
 const AlertTitle = forwardRef<
 	HTMLParagraphElement,
@@ -50,4 +50,4 @@ const AlertDescription = forwardRef<
 ))
 AlertDescription.displayName = 'AlertDescription'
 
-export { Alert, AlertDescription, AlertTitle }
+export { AlertBase, AlertDescription, AlertTitle }
