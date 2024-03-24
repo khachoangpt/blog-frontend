@@ -1,7 +1,7 @@
 import createIntlMiddleware from 'next-intl/middleware'
 import { type NextRequest, NextResponse } from 'next/server'
 import { getMe } from './actions/customer/get-me'
-import { COOKIES, THEME, pageList } from './constants'
+import { COOKIES, type LOCALE, THEME, pageList } from './constants'
 import { defaultLocale, locales } from './i18n-config'
 import { findRouteByPathname } from './utils/find-route'
 
@@ -12,6 +12,8 @@ export async function middleware(request: NextRequest) {
 	const theme = cookies.get(COOKIES.THEME)?.value
 	const jwt = cookies.get(COOKIES.JWT)?.value
 	const role = cookies.get(COOKIES.ROLE)?.value
+	const locale = (cookies.get(COOKIES.NEXT_LOCALE)?.value ??
+		defaultLocale) as LOCALE
 	const isMaintenance = process.env.NEXT_PUBLIC_MAINTENANCE_MODE
 	const handleI18nRouting = createIntlMiddleware({
 		locales,
@@ -21,7 +23,7 @@ export async function middleware(request: NextRequest) {
 	const response = handleI18nRouting(request)
 
 	// check route is exist
-	const requestIsRouter = await findRouteByPathname(url.pathname, {})
+	const requestIsRouter = await findRouteByPathname(url.pathname, {}, locale)
 	if (!requestIsRouter) {
 		return response
 	}

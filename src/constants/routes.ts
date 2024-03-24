@@ -35,7 +35,7 @@ export const pageList = {
 		title: 'Home',
 		href: '/',
 		isAuth: false,
-		pattern: [''],
+		pattern: [],
 	},
 }
 
