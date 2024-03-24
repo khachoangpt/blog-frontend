@@ -1,22 +1,29 @@
+import createIntlMiddleware from 'next-intl/middleware'
 import { type NextRequest, NextResponse } from 'next/server'
 import { getMe } from './actions/customer/get-me'
 import { COOKIES, THEME, pageList } from './constants'
+import { defaultLocale, locales } from './i18nconfig'
 import { findRouteByPathname } from './utils/find-route'
 
 // biome-ignore lint/complexity/noExcessiveCognitiveComplexity: <explanation>
 export async function middleware(request: NextRequest) {
 	const url = request.nextUrl
-	const response = NextResponse.next()
 	const cookies = request.cookies
 	const theme = cookies.get(COOKIES.THEME)?.value
 	const jwt = cookies.get(COOKIES.JWT)?.value
 	const role = cookies.get(COOKIES.ROLE)?.value
 	const isMaintenance = process.env.NEXT_PUBLIC_MAINTENANCE_MODE
+	const handleI18nRouting = createIntlMiddleware({
+		locales,
+		defaultLocale,
+		localePrefix: 'as-needed',
+	})
+	const response = handleI18nRouting(request)
 
 	// check route is exist
 	const requestIsRouter = await findRouteByPathname(url.pathname, {})
 	if (!requestIsRouter) {
-		return NextResponse.next()
+		return response
 	}
 	// access to admin page with role customer
 	if (requestIsRouter.pattern.at(0) === 'admin' && role !== 'admin') {
@@ -25,7 +32,7 @@ export async function middleware(request: NextRequest) {
 	}
 	// access to admin page with role admin
 	if (requestIsRouter.pattern.at(0) === 'admin' && role === 'admin') {
-		return NextResponse.next()
+		return response
 	}
 	// get current customer
 	if (jwt && requestIsRouter.isAuth) {

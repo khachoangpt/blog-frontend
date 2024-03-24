@@ -11,11 +11,16 @@ import { pageList } from '@/constants'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-export const MenuHeader = () => {
+type Props = {
+	homeText: string
+	blogText: string
+}
+
+export const MenuHeader = ({ blogText, homeText }: Props) => {
 	const pathname = usePathname()
 	const headers: { href: string; title: string }[] = [
-		pageList.home,
-		pageList.blogList,
+		{ href: pageList.home.href, title: homeText },
+		{ href: pageList.blogList.href, title: blogText },
 	]
 
 	return (

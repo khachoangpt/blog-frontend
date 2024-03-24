@@ -5,7 +5,7 @@
 		"quickfix.biome": "explicit",
 		"source.organizeImports.biome": "explicit"
 	},
-	"cSpell.words": [
-		"svgs"
-	],
+	"cSpell.words": ["svgs"],
+	"i18n-ally.keystyle": "nested",
+	"i18n-ally.localesPaths": ["public/messages"]
 }
