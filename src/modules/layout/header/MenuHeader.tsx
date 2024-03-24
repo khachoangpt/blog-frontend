@@ -8,19 +8,16 @@ import {
 	navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
 import { pageList } from '@/constants'
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-type Props = {
-	homeText: string
-	blogText: string
-}
-
-export const MenuHeader = ({ blogText, homeText }: Props) => {
+export const MenuHeader = () => {
 	const pathname = usePathname()
+	const t = useTranslations('Common.header')
 	const headers: { href: string; title: string }[] = [
-		{ href: pageList.home.href, title: homeText },
-		{ href: pageList.blogList.href, title: blogText },
+		{ href: pageList.home.href, title: t('home') },
+		{ href: pageList.blogList.href, title: t('blog') },
 	]
 
 	return (

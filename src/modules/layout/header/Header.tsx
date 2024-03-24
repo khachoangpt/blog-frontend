@@ -1,27 +1,27 @@
+import { getJWT } from '@/actions'
 import { getMe } from '@/actions/customer/get-me'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Container } from '@/components/ui/container'
-import { COOKIES, type THEME } from '@/constants'
-import { getTranslations } from 'next-intl/server'
-import { cookies } from 'next/headers'
+import type { THEME } from '@/constants'
 import { MenuHeader } from '.'
+import LocaleSwitcher from './LocaleSwitcher'
 import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton'
 import ThemeButton from './ThemeButton'
 
 type Props = {
 	theme: THEME
+	locale: string
 }
 
-export const Header = async ({ theme }: Props) => {
-	const jwt = cookies().get(COOKIES.JWT)?.value
-	const t = await getTranslations('Common.header')
+export const Header = async ({ theme, locale }: Props) => {
+	const jwt = await getJWT()
 	const { customer } = await getMe()
 
 	return (
 		<Container className="flex items-center justify-between border-b-2 px-8 py-4 shadow-2xl">
-			<MenuHeader blogText={t('blog')} homeText={t('home')} />
-			<Container className="flex items-start gap-x-5">
+			<MenuHeader />
+			<Container className="flex items-center gap-x-5">
 				{jwt ? (
 					<>
 						<LogoutButton />
@@ -35,6 +35,7 @@ export const Header = async ({ theme }: Props) => {
 				) : (
 					<LoginButton />
 				)}
+				<LocaleSwitcher locale={locale} />
 				<ThemeButton theme={theme} />
 			</Container>
 		</Container>
