@@ -17,28 +17,23 @@ export class AuthService {
    * @throws ApiError
    */
   public static login({
-    next,
     cache,
     requestBody,
   }: {
     /**
      * Next.js option
      */
-    next?: {
+    cache?: {
       revalidate?: number;
+      type?: 'default' | 'force-cache' | 'no-cache' | 'no-store' | 'only-if-cached' | 'reload';
       tags?: Array<string>;
     },
-    /**
-     * Next.js option
-     */
-    cache?: 'default' | 'force-cache' | 'no-cache' | 'no-store' | 'only-if-cached' | 'reload',
     requestBody?: LoginParams,
   }): CancelablePromise<LoginResponse> {
     return __request(OpenAPI, {
       method: 'POST',
       url: '/customer/auth/login',
       path: {
-        'next': next,
         'cache': cache,
       },
       body: requestBody,
@@ -52,28 +47,23 @@ export class AuthService {
    * @throws ApiError
    */
   public static register({
-    next,
     cache,
     requestBody,
   }: {
     /**
      * Next.js option
      */
-    next?: {
+    cache?: {
       revalidate?: number;
+      type?: 'default' | 'force-cache' | 'no-cache' | 'no-store' | 'only-if-cached' | 'reload';
       tags?: Array<string>;
     },
-    /**
-     * Next.js option
-     */
-    cache?: 'default' | 'force-cache' | 'no-cache' | 'no-store' | 'only-if-cached' | 'reload',
     requestBody?: RegisterParams,
   }): CancelablePromise<RegisterResponse> {
     return __request(OpenAPI, {
       method: 'POST',
       url: '/customer/auth/register',
       path: {
-        'next': next,
         'cache': cache,
       },
       body: requestBody,

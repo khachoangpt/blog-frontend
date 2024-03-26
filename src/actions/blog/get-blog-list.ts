@@ -15,7 +15,7 @@ export const getBlogList = async (query?: GetBlogsQuery) => {
 		const { blogs, total } = await BlogService.getBlogs(
 			{
 				...query,
-				next: { revalidate: REVALIDATE_DEFAULT, tags: queryTags.blogList() },
+				cache: { revalidate: REVALIDATE_DEFAULT, tags: queryTags.blogList() },
 			} ?? {},
 		)
 		useBlogListStore.setState({ blogs: blogs ?? [], total }, true)

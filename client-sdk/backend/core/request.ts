@@ -212,8 +212,11 @@ export const sendRequest = async (
     body: body ?? formData,
     method: options.method,
     signal: controller.signal,
-    cache: options.path?.cache,
-    next: options.path?.next,
+    cache: options.path?.cache?.type,
+    next: {
+      revalidate: options.path?.cache?.revalidate,
+      tags: options.path?.cache?.tags,
+    }
   };
 
   if (config.WITH_CREDENTIALS) {

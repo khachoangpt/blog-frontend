@@ -16,7 +16,6 @@ export class BlogService {
    */
   public static getBlogDetail({
     id,
-    next,
     cache,
   }: {
     /**
@@ -26,20 +25,16 @@ export class BlogService {
     /**
      * Next.js option
      */
-    next?: {
+    cache?: {
       revalidate?: number;
+      type?: 'default' | 'force-cache' | 'no-cache' | 'no-store' | 'only-if-cached' | 'reload';
       tags?: Array<string>;
     },
-    /**
-     * Next.js option
-     */
-    cache?: 'default' | 'force-cache' | 'no-cache' | 'no-store' | 'only-if-cached' | 'reload',
   }): CancelablePromise<GetBlogDetailResponse> {
     return __request(OpenAPI, {
       method: 'GET',
       url: '/customer/blog/{id}',
       path: {
-        'next': next,
         'cache': cache,
         'id': id,
       },
@@ -52,7 +47,6 @@ export class BlogService {
    * @throws ApiError
    */
   public static getBlogs({
-    next,
     cache,
     select,
     skip,
@@ -63,14 +57,11 @@ export class BlogService {
     /**
      * Next.js option
      */
-    next?: {
+    cache?: {
       revalidate?: number;
+      type?: 'default' | 'force-cache' | 'no-cache' | 'no-store' | 'only-if-cached' | 'reload';
       tags?: Array<string>;
     },
-    /**
-     * Next.js option
-     */
-    cache?: 'default' | 'force-cache' | 'no-cache' | 'no-store' | 'only-if-cached' | 'reload',
     /**
      * Select
      */
@@ -96,7 +87,6 @@ export class BlogService {
       method: 'GET',
       url: '/customer/blog',
       path: {
-        'next': next,
         'cache': cache,
       },
       query: {

@@ -14,26 +14,21 @@ export class CustomerService {
    * @throws ApiError
    */
   public static getMe({
-    next,
     cache,
   }: {
     /**
      * Next.js option
      */
-    next?: {
+    cache?: {
       revalidate?: number;
+      type?: 'default' | 'force-cache' | 'no-cache' | 'no-store' | 'only-if-cached' | 'reload';
       tags?: Array<string>;
     },
-    /**
-     * Next.js option
-     */
-    cache?: 'default' | 'force-cache' | 'no-cache' | 'no-store' | 'only-if-cached' | 'reload',
   }): CancelablePromise<GetMeResponse> {
     return __request(OpenAPI, {
       method: 'GET',
       url: '/customer/me',
       path: {
-        'next': next,
         'cache': cache,
       },
     });

@@ -7,7 +7,7 @@ export const getMe = async () => {
 		const jwt = await getJWT()
 		if (!jwt) return { error: 'JWT not found' }
 		const customer = await CustomerService.getMe({
-			next: { revalidate: REVALIDATE_DEFAULT, tags: queryTags.me({ jwt }) },
+			cache: { revalidate: REVALIDATE_DEFAULT, tags: queryTags.me({ jwt }) },
 		})
 		return { customer }
 	} catch {

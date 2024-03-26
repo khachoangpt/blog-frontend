@@ -6,7 +6,7 @@ export const getBlogDetail = async (id: string) => {
 	try {
 		const blog = await BlogService.getBlogDetail({
 			id,
-			next: {
+			cache: {
 				revalidate: REVALIDATE_DEFAULT,
 				tags: queryTags.blogDetail({ id }),
 			},

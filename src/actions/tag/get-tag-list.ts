@@ -14,7 +14,7 @@ export const getTagList = async (query?: GetTagsQuery) => {
 	try {
 		const { tags, count } = await TagService.getTags({
 			...query,
-			next: { revalidate: REVALIDATE_DEFAULT, tags: queryTags.tagList() },
+			cache: { revalidate: REVALIDATE_DEFAULT, tags: queryTags.tagList() },
 		})
 		useTagListStore.setState({ tags: tags ?? [], count }, true)
 		return { tags: tags ?? [], count: count ?? 0 }
