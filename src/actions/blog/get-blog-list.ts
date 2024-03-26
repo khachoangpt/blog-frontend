@@ -12,12 +12,10 @@ type GetBlogsQuery = {
 
 export const getBlogList = async (query?: GetBlogsQuery) => {
 	try {
-		const { blogs, total } = await BlogService.getBlogs(
-			{
-				...query,
-				cache: { revalidate: REVALIDATE_DEFAULT, tags: queryTags.blogList() },
-			} ?? {},
-		)
+		const { blogs, total } = await BlogService.getBlogs({
+			...query,
+			cache: { revalidate: REVALIDATE_DEFAULT, tags: queryTags.blogList() },
+		})
 		useBlogListStore.setState({ blogs: blogs ?? [], total }, true)
 		return { blogs: blogs ?? [], total }
 	} catch {
