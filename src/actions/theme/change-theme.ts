@@ -1,7 +1,7 @@
 'use server'
 
-import { cookies } from 'next/headers'
+import { setTheme } from '@/actions'
 
 export const changeTheme = async (theme: string) => {
-	cookies().set('theme', theme)
+	setTheme(theme)
 }

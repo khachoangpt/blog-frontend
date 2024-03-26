@@ -1,7 +1,7 @@
 import { getTheme } from '@/actions'
 import '@/app/globals.css'
 import { Container } from '@/components/ui/container'
-import { Header } from '@/modules/layout/header'
+import { Header } from '@/modules/layout/components/header/Header'
 import { Fragment, type ReactNode } from 'react'
 
 type MainLayoutProps = Readonly<{

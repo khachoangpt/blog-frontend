@@ -4,10 +4,10 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Container } from '@/components/ui/container'
 import type { THEME } from '@/constants'
 import { Fragment } from 'react'
-import { MenuHeader } from '.'
 import LocaleSwitcher from './LocaleSwitcher'
 import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton'
+import { MenuHeader } from './MenuHeader'
 import ThemeButton from './ThemeButton'
 
 type Props = {

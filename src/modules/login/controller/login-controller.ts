@@ -25,6 +25,7 @@ const useLoginController = () => {
 		if (loginResponse) {
 			toast.success('Login success')
 			router.push(pageList.home.href)
+			return
 		}
 		!!error && toast.error(error)
 	}

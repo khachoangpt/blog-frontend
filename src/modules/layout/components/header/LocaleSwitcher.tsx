@@ -7,7 +7,7 @@ import {
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu/dropdown-menu'
 import { languages } from '@/constants'
-import { Link, usePathname } from '@/navigation'
+import { Link, usePathname } from '@/i18n'
 
 type Props = {
 	locale: string

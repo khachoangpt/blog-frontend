@@ -1,19 +1,13 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { pageList } from '@/constants'
 import { useTranslations } from 'next-intl'
-import { useRouter } from 'next/navigation'
-import { logout } from './actions'
+import useHeaderController from '../../controllers/header-controller'
 
 const LogoutButton = () => {
-	const router = useRouter()
 	const t = useTranslations('Common.header')
+	const { handleLogout } = useHeaderController()
 
-	const handleLogout = async () => {
-		await logout()
-		router.push(pageList.home.href)
-	}
 	return (
 		<Button variant="danger" onClick={handleLogout}>
 			{t('button-logout')}
