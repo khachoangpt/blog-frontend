@@ -2,7 +2,8 @@
 	"Common": {
 		"header": {
 			"home": "Home",
-			"blog": "Blog"
+			"blog": "Blog",
+			"button-logout": "Logout"
 		}
 	}
 }

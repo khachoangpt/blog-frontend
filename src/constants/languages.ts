@@ -12,3 +12,7 @@ export const languages: LanguageSelect = [
 	{ code: LOCALE.english, name: 'English' },
 	{ code: LOCALE.vietnamese, name: 'Tiếng Việt' },
 ]
+
+export const defaultLocale: LOCALE = LOCALE.english
+
+export const locales: LOCALE[] = [LOCALE.english, LOCALE.vietnamese]

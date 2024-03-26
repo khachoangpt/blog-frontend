@@ -1,6 +1,5 @@
-import type { LOCALE } from '@/constants'
+import { type LOCALE, defaultLocale } from '@/constants'
 import { pageList, pathList } from '@/constants/routes'
-import { defaultLocale } from '@/i18n-config'
 
 export const findRouteByPathname = async (
 	fullPath: string,

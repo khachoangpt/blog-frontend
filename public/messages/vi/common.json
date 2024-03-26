@@ -2,7 +2,8 @@
 	"Common": {
 		"header": {
 			"home": "Trang chủ",
-			"blog": "Bài viết"
+			"blog": "Bài viết",
+			"button-logout": "Đăng xuất"
 		}
 	}
 }

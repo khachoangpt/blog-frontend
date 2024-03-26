@@ -1,8 +1,14 @@
 import createIntlMiddleware from 'next-intl/middleware'
 import { type NextRequest, NextResponse } from 'next/server'
 import { getMe } from './actions/customer/get-me'
-import { COOKIES, type LOCALE, THEME, pageList } from './constants'
-import { defaultLocale, locales } from './i18n-config'
+import {
+	COOKIES,
+	type LOCALE,
+	THEME,
+	defaultLocale,
+	locales,
+	pageList,
+} from './constants'
 import { findRouteByPathname } from './utils/find-route'
 
 // biome-ignore lint/complexity/noExcessiveCognitiveComplexity: <explanation>

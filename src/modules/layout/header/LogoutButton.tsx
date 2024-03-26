@@ -2,11 +2,13 @@
 
 import { Button } from '@/components/ui/button'
 import { pageList } from '@/constants'
+import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
 import { logout } from './actions'
 
 const LogoutButton = () => {
 	const router = useRouter()
+	const t = useTranslations('Common.header')
 
 	const handleLogout = async () => {
 		await logout()
@@ -14,7 +16,7 @@ const LogoutButton = () => {
 	}
 	return (
 		<Button variant="danger" onClick={handleLogout}>
-			Logout
+			{t('button-logout')}
 		</Button>
 	)
 }

@@ -3,6 +3,7 @@ import { getMe } from '@/actions/customer/get-me'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Container } from '@/components/ui/container'
 import type { THEME } from '@/constants'
+import { Fragment } from 'react'
 import { MenuHeader } from '.'
 import LocaleSwitcher from './LocaleSwitcher'
 import LoginButton from './LoginButton'
@@ -23,7 +24,7 @@ export const Header = async ({ theme, locale }: Props) => {
 			<MenuHeader />
 			<Container className="flex items-center gap-x-5">
 				{jwt ? (
-					<>
+					<Fragment>
 						<LogoutButton />
 						<Avatar>
 							<AvatarImage src="/#" />
@@ -31,7 +32,7 @@ export const Header = async ({ theme, locale }: Props) => {
 								{customer?.first_name?.substring(0, 1)}
 							</AvatarFallback>
 						</Avatar>
-					</>
+					</Fragment>
 				) : (
 					<LoginButton />
 				)}
