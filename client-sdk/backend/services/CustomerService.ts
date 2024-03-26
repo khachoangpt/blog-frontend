@@ -13,10 +13,29 @@ export class CustomerService {
    * @returns GetMeResponse Get current customer success
    * @throws ApiError
    */
-  public static getMe(): CancelablePromise<GetMeResponse> {
+  public static getMe({
+    next,
+    cache,
+  }: {
+    /**
+     * Next.js option
+     */
+    next?: {
+      revalidate?: number;
+      tags?: Array<string>;
+    },
+    /**
+     * Next.js option
+     */
+    cache?: 'default' | 'force-cache' | 'no-cache' | 'no-store' | 'only-if-cached' | 'reload',
+  }): CancelablePromise<GetMeResponse> {
     return __request(OpenAPI, {
       method: 'GET',
       url: '/customer/me',
+      path: {
+        'next': next,
+        'cache': cache,
+      },
     });
   }
 }

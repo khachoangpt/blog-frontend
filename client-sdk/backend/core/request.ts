@@ -212,6 +212,8 @@ export const sendRequest = async (
     body: body ?? formData,
     method: options.method,
     signal: controller.signal,
+    cache: options.query?.cache,
+    next: options.query?.next,
   };
 
   if (config.WITH_CREDENTIALS) {

@@ -14,12 +14,25 @@ export class TagService {
    * @throws ApiError
    */
   public static getTags({
+    next,
+    cache,
     select,
     skip,
     take,
     relations,
     order,
   }: {
+    /**
+     * Next.js option
+     */
+    next?: {
+      revalidate?: number;
+      tags?: Array<string>;
+    },
+    /**
+     * Next.js option
+     */
+    cache?: 'default' | 'force-cache' | 'no-cache' | 'no-store' | 'only-if-cached' | 'reload',
     /**
      * Select
      */
@@ -44,6 +57,10 @@ export class TagService {
     return __request(OpenAPI, {
       method: 'GET',
       url: '/customer/tag',
+      path: {
+        'next': next,
+        'cache': cache,
+      },
       query: {
         'select': select,
         'skip': skip,

@@ -1,11 +1,16 @@
 import { BlogService } from '$/backend'
+import { REVALIDATE_DEFAULT, queryTags } from '@/constants'
 import { useBlogDetailStore } from '@/store/blog'
-import { unstable_noStore as noStore } from 'next/cache'
 
 export const getBlogDetail = async (id: string) => {
-	noStore()
 	try {
-		const blog = await BlogService.getBlogDetail({ id })
+		const blog = await BlogService.getBlogDetail({
+			id,
+			next: {
+				revalidate: REVALIDATE_DEFAULT,
+				tags: queryTags.blogDetail({ id }),
+			},
+		})
 		useBlogDetailStore.setState(blog ?? null, true)
 		return { blog }
 	} catch {

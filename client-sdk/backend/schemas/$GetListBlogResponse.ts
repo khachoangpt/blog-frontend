@@ -12,8 +12,6 @@ export const $GetListBlogResponse = {
     },
     total: {
       type: 'number',
-      description: `Total blogs`,
-      format: 'int32',
     },
   },
 } as const;

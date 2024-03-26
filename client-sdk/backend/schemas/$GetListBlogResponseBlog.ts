@@ -31,18 +31,17 @@ export const $GetListBlogResponseBlog = {
     published_at: {
       type: 'string',
       description: `Published at`,
+      format: 'date-time',
     },
     created_at: {
       type: 'string',
       description: `Created at`,
+      format: 'date-time',
     },
     updated_at: {
       type: 'string',
       description: `Updated at`,
-    },
-    deleted_at: {
-      type: 'string',
-      description: `Deleted at`,
+      format: 'date-time',
     },
   },
 } as const;

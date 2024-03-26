@@ -5,9 +5,6 @@
 import type { GetListBlogResponseBlog } from './GetListBlogResponseBlog';
 export type GetListBlogResponse = {
   blogs?: Array<GetListBlogResponseBlog>;
-  /**
-   * Total blogs
-   */
   total?: number;
 };
 

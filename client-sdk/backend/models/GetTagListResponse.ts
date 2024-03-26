@@ -2,12 +2,13 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { GetTagListResponseTag } from './GetTagListResponseTag';
 export type GetTagListResponse = {
-  tags?: Array<GetTagListResponseTag>;
-  /**
-   * Total tags
-   */
+  tags?: Array<{
+    id?: string;
+    name?: string;
+    created_at?: string;
+    updated_at?: string;
+  }>;
   count?: number;
 };
 

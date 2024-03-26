@@ -39,9 +39,5 @@ export type GetBlogDetailResponse = {
    * Updated at
    */
   updated_at?: string;
-  /**
-   * Deleted at
-   */
-  deleted_at?: string;
 };
 

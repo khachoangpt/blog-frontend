@@ -1,0 +1,1 @@
+export const REVALIDATE_DEFAULT = 60

@@ -1,6 +1,6 @@
 import { BlogService } from '$/backend'
+import { REVALIDATE_DEFAULT, queryTags } from '@/constants'
 import { useBlogListStore } from '@/store/blog'
-import { unstable_noStore as noStore } from 'next/cache'
 
 type GetBlogsQuery = {
 	select?: string
@@ -11,9 +11,13 @@ type GetBlogsQuery = {
 }
 
 export const getBlogList = async (query?: GetBlogsQuery) => {
-	noStore()
 	try {
-		const { blogs, total } = await BlogService.getBlogs(query ?? {})
+		const { blogs, total } = await BlogService.getBlogs(
+			{
+				...query,
+				next: { revalidate: REVALIDATE_DEFAULT, tags: queryTags.blogList() },
+			} ?? {},
+		)
 		useBlogListStore.setState({ blogs: blogs ?? [], total }, true)
 		return { blogs: blogs ?? [], total }
 	} catch {

@@ -40,9 +40,5 @@ export const $GetBlogDetailResponse = {
       type: 'string',
       description: `Updated at`,
     },
-    deleted_at: {
-      type: 'string',
-      description: `Deleted at`,
-    },
   },
 } as const;
