@@ -1,4 +1,4 @@
-import { TagService } from '$/backend'
+import { type GetTagListResponse, TagService } from '$/backend'
 import { REVALIDATE_DEFAULT, queryTags } from '@/constants'
 
 type GetTagsQuery = {
@@ -9,7 +9,15 @@ type GetTagsQuery = {
 	order?: string[]
 }
 
-export const getTagList = async (query?: GetTagsQuery) => {
+/**
+ * Asynchronously retrieves a list of tags based on the provided query.
+ *
+ * @param {GetTagsQuery} query - optional query parameters
+ * @return {Promise<GetTagListResponse & { error?: string }>} a promise that resolves with the list of tags and count, or an error message
+ */
+export const getTagList = async (
+	query?: GetTagsQuery,
+): Promise<GetTagListResponse & { error?: string }> => {
 	try {
 		const { tags, count } = await TagService.getTags({
 			...query,

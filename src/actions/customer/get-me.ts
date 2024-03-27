@@ -1,8 +1,16 @@
-import { CustomerService } from '$/backend'
+import { CustomerService, type GetMeResponse } from '$/backend'
 import { getJWT } from '@/actions/cookies'
 import { REVALIDATE_DEFAULT, queryTags } from '@/constants'
 
-export const getMe = async () => {
+/**
+ * Retrieves the customer information for the current user.
+ *
+ * @return {Promise<{ customer: GetMeResponse, error: string }>} The customer information or an error message.
+ */
+export const getMe = async (): Promise<{
+	customer?: GetMeResponse
+	error?: string
+}> => {
 	try {
 		const jwt = await getJWT()
 		if (!jwt) return { error: 'JWT not found' }
