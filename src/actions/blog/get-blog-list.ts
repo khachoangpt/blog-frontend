@@ -1,6 +1,5 @@
 import { BlogService } from '$/backend'
 import { REVALIDATE_DEFAULT, queryTags } from '@/constants'
-import { useBlogListStore } from '@/store/blog'
 
 type GetBlogsQuery = {
 	select?: string
@@ -16,7 +15,6 @@ export const getBlogList = async (query?: GetBlogsQuery) => {
 			...query,
 			cache: { revalidate: REVALIDATE_DEFAULT, tags: queryTags.blogList() },
 		})
-		useBlogListStore.setState({ blogs: blogs ?? [], total }, true)
 		return { blogs: blogs ?? [], total }
 	} catch {
 		return { error: 'Something wrong when get blog list.' }
