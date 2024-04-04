@@ -3,7 +3,7 @@ import { Slot } from '@radix-ui/react-slot'
 import type { VariantProps } from 'class-variance-authority'
 import { Loader2Icon } from 'lucide-react'
 import { type ButtonHTMLAttributes, forwardRef } from 'react'
-import { Box } from '../box'
+import { Text } from '../text'
 import { buttonVariants } from './variants'
 
 export interface ButtonProps
@@ -35,7 +35,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 				ref={ref}
 				{...props}
 			>
-				<Box className={cn({ 'opacity-0': loading })}>{children}</Box>
+				<Text as="span" className={cn({ 'opacity-0': loading })}>
+					{children}
+				</Text>
 				{loading && <Loader2Icon className="absolute animate-spin" />}
 			</Comp>
 		)

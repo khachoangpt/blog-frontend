@@ -18,8 +18,8 @@ import {
 	useMemo,
 	useState,
 } from 'react'
-import { Box } from '../box'
 import { Container } from '../container'
+import { Text } from '../text'
 
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
@@ -240,7 +240,9 @@ const CarouselPrevious = forwardRef<
 			{...props}
 		>
 			<ArrowLeft className="h-4 w-4" />
-			<Box className="sr-only">Previous slide</Box>
+			<Text as="span" className="sr-only">
+				Previous slide
+			</Text>
 		</Button>
 	)
 })
@@ -269,7 +271,9 @@ const CarouselNext = forwardRef<
 			{...props}
 		>
 			<ArrowRight className="h-4 w-4" />
-			<Box className="sr-only">Next slide</Box>
+			<Text as="span" className="sr-only">
+				Next slide
+			</Text>
 		</Button>
 	)
 })
@@ -277,9 +281,9 @@ CarouselNext.displayName = 'CarouselNext'
 
 export {
 	Carousel,
-	type CarouselApi,
 	CarouselContent,
 	CarouselItem,
 	CarouselNext,
 	CarouselPrevious,
+	type CarouselApi,
 }

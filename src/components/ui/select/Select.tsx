@@ -9,7 +9,7 @@ import {
 	type ElementRef,
 	forwardRef,
 } from 'react'
-import { Box } from '../box'
+import { Text } from '../text'
 import { selectItemVariants, selectVariants } from './variants'
 
 const SelectBase = SelectPrimitive.Root
@@ -125,11 +125,14 @@ const SelectItem = forwardRef<
 		className={cn(selectItemVariants(), className)}
 		{...props}
 	>
-		<Box className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+		<Text
+			as="span"
+			className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center"
+		>
 			<SelectPrimitive.ItemIndicator>
 				<Check className="h-4 w-4" />
 			</SelectPrimitive.ItemIndicator>
-		</Box>
+		</Text>
 
 		<SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
 	</SelectPrimitive.Item>

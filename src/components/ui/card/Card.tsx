@@ -3,7 +3,7 @@ import type { VariantProps } from 'class-variance-authority'
 import { type HTMLAttributes, forwardRef } from 'react'
 import { Container } from '../container'
 import { Heading } from '../heading'
-import { Paragraph } from '../paragraph'
+import { Text } from '../text'
 import {
 	cardContentVariants,
 	cardDescriptionVariants,
@@ -51,7 +51,7 @@ const CardDescription = forwardRef<
 	HTMLAttributes<HTMLParagraphElement> &
 		VariantProps<typeof cardDescriptionVariants>
 >(({ className, ...props }, ref) => (
-	<Paragraph
+	<Text
 		ref={ref}
 		className={cn(cardDescriptionVariants(), className)}
 		{...props}

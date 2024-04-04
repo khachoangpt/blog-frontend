@@ -9,7 +9,7 @@ import {
 	type HTMLAttributes,
 	forwardRef,
 } from 'react'
-import { Box } from '../box'
+import { Text } from '../text'
 
 const ContextMenu = ContextMenuPrimitive.Root
 
@@ -107,11 +107,14 @@ const ContextMenuCheckboxItem = forwardRef<
 		checked={checked}
 		{...props}
 	>
-		<Box className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+		<Text
+			as="span"
+			className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center"
+		>
 			<ContextMenuPrimitive.ItemIndicator>
 				<Check className="h-4 w-4" />
 			</ContextMenuPrimitive.ItemIndicator>
-		</Box>
+		</Text>
 		{children}
 	</ContextMenuPrimitive.CheckboxItem>
 ))
@@ -130,11 +133,14 @@ const ContextMenuRadioItem = forwardRef<
 		)}
 		{...props}
 	>
-		<Box className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+		<Text
+			as="span"
+			className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center"
+		>
 			<ContextMenuPrimitive.ItemIndicator>
 				<Circle className="h-2 w-2 fill-current" />
 			</ContextMenuPrimitive.ItemIndicator>
-		</Box>
+		</Text>
 		{children}
 	</ContextMenuPrimitive.RadioItem>
 ))
@@ -175,7 +181,8 @@ const ContextMenuShortcut = ({
 	...props
 }: HTMLAttributes<HTMLSpanElement>) => {
 	return (
-		<Box
+		<Text
+			as="span"
 			className={cn(
 				'ml-auto text-xs tracking-widest text-muted-foreground',
 				className,

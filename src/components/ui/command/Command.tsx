@@ -13,8 +13,8 @@ import {
 	forwardRef,
 } from 'react'
 
-import { Box } from '../box'
 import { Container } from '../container'
+import { Text } from '../text'
 import {
 	commandEmptyVariants,
 	commandGroupVariants,
@@ -144,7 +144,13 @@ const CommandShortcut = ({
 	...props
 }: HTMLAttributes<HTMLSpanElement> &
 	VariantProps<typeof commandShortcutVariants>) => {
-	return <Box className={cn(commandShortcutVariants(), className)} {...props} />
+	return (
+		<Text
+			as="span"
+			className={cn(commandShortcutVariants(), className)}
+			{...props}
+		/>
+	)
 }
 CommandShortcut.displayName = 'CommandShortcut'
 

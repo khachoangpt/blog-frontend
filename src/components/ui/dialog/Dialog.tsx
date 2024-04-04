@@ -10,8 +10,8 @@ import {
 	type HTMLAttributes,
 	forwardRef,
 } from 'react'
-import { Box } from '../box'
 import { Container } from '../container'
+import { Text } from '../text'
 import {
 	dialogCloseVariants,
 	dialogContentVariants,
@@ -59,7 +59,9 @@ const DialogContent = forwardRef<
 			{children}
 			<DialogPrimitive.Close className={cn(dialogCloseVariants())}>
 				<X className="h-4 w-4" />
-				<Box className="sr-only">Close</Box>
+				<Text as="span" className="sr-only">
+					Close
+				</Text>
 			</DialogPrimitive.Close>
 		</DialogPrimitive.Content>
 	</DialogPortal>
