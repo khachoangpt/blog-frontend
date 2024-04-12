@@ -21,7 +21,7 @@ export const getBlogList = async (
 	try {
 		const { blogs, total } = await BlogService.getBlogs({
 			...query,
-			cache: { revalidate: REVALIDATE_DEFAULT, tags: queryTags.blogList() },
+			cache: { revalidate: REVALIDATE_DEFAULT, tags: queryTags.blog.list() },
 		})
 		return { blogs: blogs ?? [], total }
 	} catch {

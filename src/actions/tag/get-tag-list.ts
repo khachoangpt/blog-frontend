@@ -21,7 +21,7 @@ export const getTagList = async (
 	try {
 		const { tags, count } = await TagService.getTags({
 			...query,
-			cache: { revalidate: REVALIDATE_DEFAULT, tags: queryTags.tagList() },
+			cache: { revalidate: REVALIDATE_DEFAULT, tags: queryTags.tag.list() },
 		})
 		return { tags: tags ?? [], count: count ?? 0 }
 	} catch {

@@ -15,7 +15,7 @@ export const getBlogDetail = async (
 			id,
 			cache: {
 				revalidate: REVALIDATE_DEFAULT,
-				tags: queryTags.blogDetail({ id }),
+				tags: queryTags.blog.detail({ id }),
 			},
 		})
 		return { blog }

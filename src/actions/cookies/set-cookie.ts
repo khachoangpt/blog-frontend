@@ -6,7 +6,13 @@ const defaultConfig = {
 	path: '/',
 }
 
-export const setTheme = (theme: string) => {
+/**
+ * Sets the theme in the cookies.
+ *
+ * @param {string} theme - the theme to be set
+ * @return {void}
+ */
+export const setTheme = (theme: string): void => {
 	cookies().set({
 		name: COOKIES.THEME,
 		value: theme,
@@ -14,7 +20,13 @@ export const setTheme = (theme: string) => {
 	})
 }
 
-export const setJWT = (jwt: string) => {
+/**
+ * Sets a JWT cookie with the provided JWT string.
+ *
+ * @param {string} jwt - The JWT string to be set in the cookie.
+ * @return {void}
+ */
+export const setJWT = (jwt: string): void => {
 	cookies().set({
 		name: COOKIES.JWT,
 		value: jwt,
