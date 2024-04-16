@@ -1,6 +1,6 @@
 'use server'
 
-import { deleteJWT } from '@/actions/cookies'
+import { deleteJWT } from '@/actions'
 
 /**
  * Clears the JWT cookie and invalidates the session on the server.

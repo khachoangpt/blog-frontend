@@ -1,4 +1,4 @@
-import { getTheme } from '@/actions/cookies'
+import { getTheme } from '@/actions'
 import '@/app/globals.css'
 import { Toaster } from '@/components/ui/sonner'
 import { fontSans } from '@/configs/font'

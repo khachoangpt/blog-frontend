@@ -6,7 +6,7 @@ import {
 	type LoginParams,
 	type LoginResponse,
 } from '$/backend'
-import { setJWT } from '@/actions/cookies'
+import { setJWT } from '@/actions'
 
 /**
  * Logs in to the server with the given login credentials.

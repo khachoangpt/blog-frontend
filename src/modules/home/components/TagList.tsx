@@ -1,4 +1,4 @@
-import { getTagList } from '@/actions/tag'
+import { getTagList } from '@/actions/tag/get-tag-list'
 import { Badge } from '@/components/ui/badge'
 import { Container } from '@/components/ui/container'
 import { Heading } from '@/components/ui/heading'

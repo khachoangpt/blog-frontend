@@ -1,6 +1,6 @@
 import '@/app/globals.css'
 
-import { getTheme } from '@/actions/cookies'
+import { getTheme } from '@/actions'
 import { Container } from '@/components/ui/container'
 import { Header } from '@/modules/layout/components/header/Header'
 import { Fragment, type ReactNode } from 'react'
