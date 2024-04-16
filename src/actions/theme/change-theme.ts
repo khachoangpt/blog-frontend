@@ -1,6 +1,6 @@
 'use server'
 
-import { setTheme } from '@/actions'
+import { setTheme } from '@/actions/cookies'
 
 /**
  * Sets the theme for the application.

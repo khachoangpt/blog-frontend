@@ -6,6 +6,6 @@ import { cookies } from 'next/headers'
  *
  * @return {void}
  */
-export const deleteJWT = () => {
+export const deleteJWT = (): void => {
 	cookies().delete({ name: COOKIES.JWT })
 }
