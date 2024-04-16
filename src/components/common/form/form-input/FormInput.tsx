@@ -23,7 +23,7 @@ type Props = {
 
 export const FormInput = ({
 	label = '',
-	placeholder = '',
+	placeholder,
 	className,
 	description,
 	onChange,
@@ -38,7 +38,7 @@ export const FormInput = ({
 			<FormLabel>{label}</FormLabel>
 			<FormControl>
 				<Input
-					placeholder={placeholder}
+					placeholder={placeholder ?? label}
 					className={cn(className, { 'border-destructive': !!error })}
 					onChange={onChange}
 					value={value}

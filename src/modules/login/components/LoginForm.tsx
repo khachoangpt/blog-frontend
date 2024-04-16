@@ -4,9 +4,11 @@ import { FormInput } from '@/components/common/form/form-input'
 import { Button } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
 import { Form, FormField } from '@/components/ui/form'
+import { useTranslations } from 'next-intl'
 import useLoginController from '../controller/login-controller'
 
 const LoginForm = () => {
+	const t = useTranslations('Login.form')
 	const { control, loginForm, handleSubmit, handleLogin, isSubmitting } =
 		useLoginController()
 
@@ -17,7 +19,12 @@ const LoginForm = () => {
 					control={control}
 					name="email"
 					render={({ field: { onChange, value } }) => (
-						<FormInput onChange={onChange} value={value} label="Email" />
+						<FormInput
+							onChange={onChange}
+							value={value}
+							label={t('email')}
+							placeholder={t('email')}
+						/>
 					)}
 				/>
 				<FormField
@@ -27,8 +34,9 @@ const LoginForm = () => {
 						<FormInput
 							onChange={onChange}
 							value={value}
-							label="Password"
+							label={t('password')}
 							type="password"
+							placeholder={t('password')}
 						/>
 					)}
 				/>
@@ -39,7 +47,7 @@ const LoginForm = () => {
 					type="submit"
 					onClick={handleSubmit(handleLogin)}
 				>
-					Login
+					{t('login')}
 				</Button>
 			</Container>
 		</Form>

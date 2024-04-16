@@ -6,7 +6,7 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"oas:sdk:store": "pnpm openapi -i ../blog-backend/docs/next-spec.customer.json -o ./client-sdk/backend -c fetch --useOptions --exportSchemas true --indent 2 --request ./client-sdk/request/index.ts",
+		"oas:sdk:store": "npx @hey-api/openapi-ts -i ../blog-backend/docs/next-spec.customer.json -o client-sdk/backend -c fetch --useOptions --request ./client-sdk/request/index.ts",
 		"openapi:generate": "pnpm oas:sdk:store",
 		"prepare": "husky"
 	},
@@ -37,7 +37,6 @@
 		"next": "14.1.4",
 		"next-intl": "^3.11.0",
 		"next-themes": "^0.2.1",
-		"nookies": "^2.5.2",
 		"react": "^18.2.0",
 		"react-day-picker": "^8.10.0",
 		"react-dom": "^18.2.0",
@@ -53,6 +52,7 @@
 		"@biomejs/biome": "^1.6.4",
 		"@commitlint/cli": "^18.6.1",
 		"@commitlint/config-conventional": "^18.6.3",
+		"@hey-api/openapi-ts": "^0.39.0",
 		"@svgr/webpack": "^8.1.0",
 		"@types/node": "^20.12.4",
 		"@types/react": "^18.2.74",
@@ -60,7 +60,6 @@
 		"autoprefixer": "^10.4.19",
 		"husky": "^9.0.11",
 		"lint-staged": "^15.2.2",
-		"openapi-typescript-codegen": "^0.27.0",
 		"postcss": "^8.4.38",
 		"tailwindcss": "^3.4.3",
 		"typescript": "^5.4.3"

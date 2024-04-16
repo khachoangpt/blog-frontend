@@ -1,9 +1,13 @@
 {
-	"Common": {
-		"header": {
-			"home": "Trang chủ",
-			"blog": "Bài viết",
-			"button-logout": "Đăng xuất"
-		}
-	}
+  "Common": {
+    "header": {
+      "home": "Trang chủ",
+      "blog": "Bài viết",
+      "button-logout": "Đăng xuất",
+      "button-login": "Đăng nhập"
+    },
+    "toast": {
+      "unknown-error": "Lỗi không rõ"
+    }
+  }
 }

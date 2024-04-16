@@ -1,0 +1,14 @@
+{
+	"Login": {
+		"form": {
+			"email": "E-mail",
+			"password": "Mật khẩu",
+			"login": "Đăng nhập"
+		},
+		"toast": {
+			"login-success": "Đăng nhập thành công",
+			"customer-not-found": "Người dùng không tồn tại",
+			"email-or-password-incorrect": "Email hoặc mật khẩu không đúng"
+		}
+	}
+}
