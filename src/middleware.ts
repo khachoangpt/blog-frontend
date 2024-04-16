@@ -11,13 +11,11 @@ import {
 } from './constants'
 import { findRouteByPathname } from './utils/find-route'
 
-// biome-ignore lint/complexity/noExcessiveCognitiveComplexity: <explanation>
 export async function middleware(request: NextRequest) {
 	const url = request.nextUrl
 	const cookies = request.cookies
 	const theme = cookies.get(COOKIES.THEME)?.value
 	const jwt = cookies.get(COOKIES.JWT)?.value
-	const role = cookies.get(COOKIES.ROLE)?.value
 	const locale = (cookies.get(COOKIES.NEXT_LOCALE)?.value ??
 		defaultLocale) as LOCALE
 	const isMaintenance = process.env.NEXT_PUBLIC_MAINTENANCE_MODE
@@ -31,15 +29,6 @@ export async function middleware(request: NextRequest) {
 	// check route is exist
 	const requestIsRouter = await findRouteByPathname(url.pathname, {}, locale)
 	if (!requestIsRouter) {
-		return response
-	}
-	// access to admin page with role customer
-	if (requestIsRouter.pattern.at(0) === 'admin' && role !== 'admin') {
-		const redirectUrl = new URL(pageList.home.href, request.url)
-		return NextResponse.redirect(redirectUrl)
-	}
-	// access to admin page with role admin
-	if (requestIsRouter.pattern.at(0) === 'admin' && role === 'admin') {
 		return response
 	}
 	// get current customer
