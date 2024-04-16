@@ -1,6 +1,6 @@
 import createIntlMiddleware from 'next-intl/middleware'
 import { type NextRequest, NextResponse } from 'next/server'
-import { getMe } from './actions/customer/get-me'
+import { getMe } from './actions/customer'
 import {
 	COOKIES,
 	type LOCALE,

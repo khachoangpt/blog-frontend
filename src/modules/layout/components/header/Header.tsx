@@ -1,5 +1,5 @@
-import { getJWT } from '@/actions'
-import { getMe } from '@/actions/customer/get-me'
+import { getJWT } from '@/actions/cookies'
+import { getMe } from '@/actions/customer'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Container } from '@/components/ui/container'
 import type { THEME } from '@/constants'

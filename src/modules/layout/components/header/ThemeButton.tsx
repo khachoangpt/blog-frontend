@@ -1,6 +1,6 @@
 'use client'
 
-import { changeTheme } from '@/actions/theme/change-theme'
+import { setTheme } from '@/actions/cookies'
 import { Button } from '@/components/ui/button'
 import { THEME } from '@/constants'
 import { MoonIcon, SunIcon } from 'lucide-react'
@@ -12,7 +12,7 @@ type Props = {
 const ThemeButton = ({ theme }: Props) => {
 	const onChangeTheme = async () => {
 		const themeChange = theme === THEME.DARK ? THEME.LIGHT : THEME.DARK
-		changeTheme(themeChange)
+		setTheme(themeChange)
 	}
 
 	return (
