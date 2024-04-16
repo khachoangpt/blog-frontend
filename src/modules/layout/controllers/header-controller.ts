@@ -1,6 +1,6 @@
+import { logout } from '@/actions/auth/logout'
 import { pageList } from '@/constants'
 import { useRouter } from 'next/navigation'
-import { logout } from '../actions/header-actions'
 
 const useHeaderController = () => {
 	const router = useRouter()

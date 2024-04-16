@@ -1,11 +1,11 @@
 import type { LoginParams } from '$/backend'
+import { login } from '@/actions/auth'
 import { pageList } from '@/constants'
 import { loginSchema } from '@/constants/validation-schemas'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/navigation'
 import { type SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
-import { login } from '../actions/login-actions'
 
 const useLoginController = () => {
 	const router = useRouter()
