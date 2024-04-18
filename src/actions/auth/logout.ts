@@ -7,6 +7,6 @@ import { deleteJWT } from '@/actions/cookies'
  *
  * @return {Promise<void>}
  */
-export const logout = async () => {
+export const logout = async (): Promise<void> => {
 	deleteJWT()
 }

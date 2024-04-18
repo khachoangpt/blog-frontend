@@ -42,10 +42,10 @@ const useLoginController = () => {
 	}
 
 	/**
-	 * Returns the error message corresponding to the given error from backend.
+	 * Generates a login error message based on the given error message.
 	 *
-	 * @param {string} error - The error message from backend.
-	 * @return {string} The error message corresponding to the error from backend. If the error is not recognized, an empty string is returned.
+	 * @param {string} [error] - The error message.
+	 * @return {string} - The login error message.
 	 */
 	const getLoginErrorMessage = (error?: string): string => {
 		switch (error) {
