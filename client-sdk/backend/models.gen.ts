@@ -231,6 +231,21 @@ export type CustomerRole = 'customer' | 'admin';
 
 export type ErrorMessages = 'Customer not found' | 'Email or password incorrect';
 
+export type NextJsOptions = {
+    /**
+ * Revalidate time in seconds
+ */
+    revalidate?: number;
+    /**
+ * Cache type
+ */
+    type?: 'default' | 'force-cache' | 'no-cache' | 'no-store' | 'only-if-cached' | 'reload';
+    /**
+ * Cache tags
+ */
+    tags?: Array<(string)>;
+};
+
 export type $OpenApiTs = {
     '/customer/auth/login': {
         post: {
@@ -238,11 +253,7 @@ export type $OpenApiTs = {
                 /**
  * Next.js option
  */
-                cache?: {
-                    revalidate?: number;
-                    type?: 'default' | 'force-cache' | 'no-cache' | 'no-store' | 'only-if-cached' | 'reload';
-                    tags?: Array<(string)>;
-                };
+                cache?: NextJsOptions;
                 requestBody?: LoginParams;
             };
             res: {
@@ -259,11 +270,7 @@ export type $OpenApiTs = {
                 /**
  * Next.js option
  */
-                cache?: {
-                    revalidate?: number;
-                    type?: 'default' | 'force-cache' | 'no-cache' | 'no-store' | 'only-if-cached' | 'reload';
-                    tags?: Array<(string)>;
-                };
+                cache?: NextJsOptions;
                 requestBody?: RegisterParams;
             };
             res: {
@@ -280,11 +287,7 @@ export type $OpenApiTs = {
                 /**
  * Next.js option
  */
-                cache?: {
-                    revalidate?: number;
-                    type?: 'default' | 'force-cache' | 'no-cache' | 'no-store' | 'only-if-cached' | 'reload';
-                    tags?: Array<(string)>;
-                };
+                cache?: NextJsOptions;
                 /**
  * Id of blog
  */
@@ -304,11 +307,7 @@ export type $OpenApiTs = {
                 /**
  * Next.js option
  */
-                cache?: {
-                    revalidate?: number;
-                    type?: 'default' | 'force-cache' | 'no-cache' | 'no-store' | 'only-if-cached' | 'reload';
-                    tags?: Array<(string)>;
-                };
+                cache?: NextJsOptions;
                 /**
  * Order
  */
@@ -344,11 +343,7 @@ export type $OpenApiTs = {
                 /**
  * Next.js option
  */
-                cache?: {
-                    revalidate?: number;
-                    type?: 'default' | 'force-cache' | 'no-cache' | 'no-store' | 'only-if-cached' | 'reload';
-                    tags?: Array<(string)>;
-                };
+                cache?: NextJsOptions;
             };
             res: {
                 /**
@@ -364,11 +359,7 @@ export type $OpenApiTs = {
                 /**
  * Next.js option
  */
-                cache?: {
-                    revalidate?: number;
-                    type?: 'default' | 'force-cache' | 'no-cache' | 'no-store' | 'only-if-cached' | 'reload';
-                    tags?: Array<(string)>;
-                };
+                cache?: NextJsOptions;
                 /**
  * Order
  */
