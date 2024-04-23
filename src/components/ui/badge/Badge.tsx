@@ -1,6 +1,7 @@
 import { cn } from '@/lib/utils'
 import type { VariantProps } from 'class-variance-authority'
 import type { HTMLAttributes } from 'react'
+import { Container } from '../container'
 import { badgeVariants } from './variants'
 
 export interface BadgeProps
@@ -9,7 +10,7 @@ export interface BadgeProps
 
 function Badge({ className, variant, size, ...props }: BadgeProps) {
 	return (
-		<div
+		<Container
 			className={cn(badgeVariants({ variant, size }), className)}
 			{...props}
 		/>

@@ -11,6 +11,7 @@ import {
 	FormProvider,
 	useFormContext,
 } from 'react-hook-form'
+import { Container } from '../container'
 
 const Form = FormProvider
 
@@ -83,7 +84,7 @@ const FormItem = React.forwardRef<
 
 	return (
 		<FormItemContext.Provider value={formItemContextValue}>
-			<div ref={ref} className={cn('space-y-2', className)} {...props} />
+			<Container ref={ref} className={cn('space-y-2', className)} {...props} />
 		</FormItemContext.Provider>
 	)
 })

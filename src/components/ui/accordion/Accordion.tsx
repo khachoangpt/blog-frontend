@@ -9,6 +9,7 @@ import {
 	type ElementRef,
 	forwardRef,
 } from 'react'
+import { Container } from '../container'
 import {
 	accordionContentVariants,
 	accordionItemVariants,
@@ -58,7 +59,7 @@ const AccordionContent = forwardRef<
 		className={accordionContentVariants()}
 		{...props}
 	>
-		<div className={cn('pb-4 pt-0', className)}>{children}</div>
+		<Container className={cn('pb-4 pt-0', className)}>{children}</Container>
 	</AccordionPrimitive.Content>
 ))
 

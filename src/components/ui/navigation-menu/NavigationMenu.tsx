@@ -7,6 +7,7 @@ import {
 	type ElementRef,
 	forwardRef,
 } from 'react'
+import { Container } from '../container'
 
 const NavigationMenu = forwardRef<
 	ElementRef<typeof NavigationMenuPrimitive.Root>,
@@ -86,7 +87,7 @@ const NavigationMenuViewport = forwardRef<
 	ElementRef<typeof NavigationMenuPrimitive.Viewport>,
 	ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Viewport>
 >(({ className, ...props }, ref) => (
-	<div className={cn('absolute left-0 top-full flex justify-center')}>
+	<Container className={cn('absolute left-0 top-full flex justify-center')}>
 		<NavigationMenuPrimitive.Viewport
 			className={cn(
 				'origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]',
@@ -95,7 +96,7 @@ const NavigationMenuViewport = forwardRef<
 			ref={ref}
 			{...props}
 		/>
-	</div>
+	</Container>
 ))
 NavigationMenuViewport.displayName =
 	NavigationMenuPrimitive.Viewport.displayName
@@ -112,7 +113,7 @@ const NavigationMenuIndicator = forwardRef<
 		)}
 		{...props}
 	>
-		<div className="relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm bg-border shadow-md" />
+		<Container className="relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm bg-border shadow-md" />
 	</NavigationMenuPrimitive.Indicator>
 ))
 NavigationMenuIndicator.displayName =
