@@ -1,5 +1,5 @@
-import { CustomerService, type GetMeResponse } from '$/backend'
 import { getJWT } from '@/actions/cookies'
+import { CustomerService, type GetMeResponse } from '@/client-sdk/backend'
 import { REVALIDATE_DEFAULT, queryTags } from '@/constants'
 
 /**

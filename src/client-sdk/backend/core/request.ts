@@ -1,11 +1,11 @@
 import { cookies } from 'next/headers'
-import { ApiError } from '$/backend'
-import type { ApiRequestOptions } from '$/backend/core/ApiRequestOptions'
-import type { ApiResult } from '$/backend/core/ApiResult'
-import { CancelablePromise } from '$/backend/core/CancelablePromise'
-import type { OnCancel } from '$/backend/core/CancelablePromise'
-import type { OpenAPIConfig } from '$/backend'
-import { setEndpoint } from '$/request/endpoint'
+import { ApiError } from '@/client-sdk/backend'
+import type { ApiRequestOptions } from '@/client-sdk/backend/core/ApiRequestOptions'
+import type { ApiResult } from '@/client-sdk/backend/core/ApiResult'
+import { CancelablePromise } from '@/client-sdk/backend/core/CancelablePromise'
+import type { OnCancel } from '@/client-sdk/backend/core/CancelablePromise'
+import type { OpenAPIConfig } from '@/client-sdk/backend'
+import { setEndpoint } from '@/client-sdk/request/endpoint'
 import { COOKIES } from '@/constants'
 
 // set custom api path

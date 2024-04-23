@@ -1,4 +1,4 @@
-import { OpenAPI } from '$/backend/core/OpenAPI'
+import { OpenAPI } from '@/client-sdk/backend/core/OpenAPI'
 
 // set custom api path
 export function setEndpoint() {

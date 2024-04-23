@@ -1,12 +1,12 @@
 'use server'
 
+import { setJWT } from '@/actions/cookies'
 import {
 	type ApiError,
 	AuthService,
 	type LoginParams,
 	type LoginResponse,
-} from '$/backend'
-import { setJWT } from '@/actions/cookies'
+} from '@/client-sdk/backend'
 
 /**
  * Logs in to the server with the given login credentials.

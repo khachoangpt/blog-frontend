@@ -1,4 +1,4 @@
-import type { GetBlogDetailResponse } from '$/backend'
+import type { GetBlogDetailResponse } from '@/client-sdk/backend'
 import {
 	Card,
 	CardContent,

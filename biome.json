@@ -3,6 +3,9 @@
 	"organizeImports": {
 		"enabled": true
 	},
+	"files": {
+		"ignore": ["src/client-sdk/**/*.ts"]
+	},
 	"javascript": {
 		"formatter": {
 			"enabled": true,
