@@ -1,4 +1,5 @@
-import { BlogService, type GetListBlogResponse } from '@/client-sdk/backend'
+import { BlogService } from '@/client-sdk/backend/services.gen'
+import type { GetListBlogResponse } from '@/client-sdk/backend/types.gen'
 import { REVALIDATE_DEFAULT, queryTags } from '@/constants'
 
 type GetBlogsQuery = {

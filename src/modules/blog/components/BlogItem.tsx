@@ -1,4 +1,4 @@
-import type { GetBlogDetailResponse } from '@/client-sdk/backend'
+import type { GetBlogDetailResponse } from '@/client-sdk/backend/types.gen'
 import {
 	Card,
 	CardContent,

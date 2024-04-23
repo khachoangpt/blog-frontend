@@ -1,4 +1,5 @@
-import { type GetTagListResponse, TagService } from '@/client-sdk/backend'
+import { TagService } from '@/client-sdk/backend/services.gen'
+import type { GetTagListResponse } from '@/client-sdk/backend/types.gen'
 import { REVALIDATE_DEFAULT, queryTags } from '@/constants'
 
 type GetTagsQuery = {

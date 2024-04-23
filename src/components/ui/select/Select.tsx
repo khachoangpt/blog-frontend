@@ -79,27 +79,29 @@ const SelectContent = forwardRef<
 	ElementRef<typeof SelectPrimitive.Content>,
 	ComponentPropsWithoutRef<typeof SelectPrimitive.Content> &
 		VariantProps<typeof selectContentVariants>
->(({ className, children, position = 'popper', variant, ...props }, ref) => (
-	<SelectPrimitive.Portal>
-		<SelectPrimitive.Content
-			ref={ref}
-			className={cn(
-				position === 'popper' &&
-					'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
-				selectContentVariants({ variant }),
-				className,
-			)}
-			position={position}
-			{...props}
-		>
-			<SelectScrollUpButton />
-			<SelectPrimitive.Viewport className={cn('p-1')}>
-				{children}
-			</SelectPrimitive.Viewport>
-			<SelectScrollDownButton />
-		</SelectPrimitive.Content>
-	</SelectPrimitive.Portal>
-))
+>(({ className, children, position = 'popper', variant, ...props }, ref) => {
+	return (
+		<SelectPrimitive.Portal>
+			<SelectPrimitive.Content
+				ref={ref}
+				className={cn(
+					position === 'popper' &&
+						'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
+					selectContentVariants({ variant }),
+					className,
+				)}
+				position={position}
+				{...props}
+			>
+				<SelectScrollUpButton />
+				<SelectPrimitive.Viewport className={cn('p-1')}>
+					{children}
+				</SelectPrimitive.Viewport>
+				<SelectScrollDownButton />
+			</SelectPrimitive.Content>
+		</SelectPrimitive.Portal>
+	)
+})
 SelectContent.displayName = SelectPrimitive.Content.displayName
 
 const SelectLabel = forwardRef<
@@ -118,10 +120,10 @@ const SelectItem = forwardRef<
 	ElementRef<typeof SelectPrimitive.Item>,
 	ComponentPropsWithoutRef<typeof SelectPrimitive.Item> &
 		VariantProps<typeof selectItemVariants>
->(({ className, children, ...props }, ref) => (
+>(({ className, children, variant, ...props }, ref) => (
 	<SelectPrimitive.Item
 		ref={ref}
-		className={cn(selectItemVariants(), className)}
+		className={cn(selectItemVariants({ variant }), className)}
 		{...props}
 	>
 		<Text

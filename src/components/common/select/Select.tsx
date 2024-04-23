@@ -42,7 +42,11 @@ export const Select = (props: Props) => {
 			</SelectTrigger>
 			<SelectContent variant={variant}>
 				{options.map((option) => (
-					<SelectItem key={`option_${option.value}`} value={option.value}>
+					<SelectItem
+						variant={variant}
+						key={`option_${option.value}`}
+						value={option.value}
+					>
 						{option?.label}
 					</SelectItem>
 				))}

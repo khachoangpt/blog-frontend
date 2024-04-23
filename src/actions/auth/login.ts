@@ -1,12 +1,9 @@
 'use server'
 
 import { setJWT } from '@/actions/cookies'
-import {
-	type ApiError,
-	AuthService,
-	type LoginParams,
-	type LoginResponse,
-} from '@/client-sdk/backend'
+import type { ApiError } from '@/client-sdk/backend/core/ApiError'
+import { AuthService } from '@/client-sdk/backend/services.gen'
+import type { LoginParams, LoginResponse } from '@/client-sdk/backend/types.gen'
 
 /**
  * Logs in to the server with the given login credentials.

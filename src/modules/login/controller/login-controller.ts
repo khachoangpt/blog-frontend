@@ -1,5 +1,6 @@
 import { login } from '@/actions/auth'
-import { ErrorMessagesEnum, type LoginParams } from '@/client-sdk/backend'
+import { ErrorMessagesEnum } from '@/client-sdk/backend/enums.gen'
+import type { LoginParams } from '@/client-sdk/backend/types.gen'
 import { pageList } from '@/constants'
 import { loginSchema } from '@/constants/validation-schemas'
 import { zodResolver } from '@hookform/resolvers/zod'
