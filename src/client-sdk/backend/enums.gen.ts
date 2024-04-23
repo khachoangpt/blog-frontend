@@ -8,7 +8,7 @@ export enum CustomerStatusEnum {
 
 export enum CustomerRoleEnum {
 	CUSTOMER = 'customer',
-	ADMIN = 'admin'
+	ADMIN = 'admin',
 }
 
 export enum ErrorMessagesEnum {

@@ -1,12 +1,12 @@
-import { cookies } from 'next/headers'
 import { ApiError } from '@/client-sdk/backend'
+import type { OpenAPIConfig } from '@/client-sdk/backend'
 import type { ApiRequestOptions } from '@/client-sdk/backend/core/ApiRequestOptions'
 import type { ApiResult } from '@/client-sdk/backend/core/ApiResult'
 import { CancelablePromise } from '@/client-sdk/backend/core/CancelablePromise'
 import type { OnCancel } from '@/client-sdk/backend/core/CancelablePromise'
-import type { OpenAPIConfig } from '@/client-sdk/backend'
 import { setEndpoint } from '@/client-sdk/request/endpoint'
 import { COOKIES } from '@/constants'
+import { cookies } from 'next/headers'
 
 // set custom api path
 setEndpoint()
@@ -19,6 +19,7 @@ export const isStringWithValue = (value: unknown): value is string => {
 	return isString(value) && value !== ''
 }
 
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export const isBlob = (value: any): value is Blob => {
 	return value instanceof Blob
 }
@@ -30,7 +31,7 @@ export const isFormData = (value: unknown): value is FormData => {
 export const base64 = (str: string): string => {
 	try {
 		return btoa(str)
-	} catch (err) {
+	} catch (_err) {
 		// @ts-ignore
 		return Buffer.from(str).toString('base64')
 	}
@@ -49,15 +50,21 @@ export const getQueryString = (params: Record<string, unknown>): string => {
 		}
 
 		if (Array.isArray(value)) {
-			value.forEach((v) => encodePair(key, v))
+			for (const v of value) {
+				encodePair(key, v)
+			}
 		} else if (typeof value === 'object') {
-			Object.entries(value).forEach(([k, v]) => encodePair(`${key}[${k}]`, v))
+			for (const [k, v] of Object.entries(value)) {
+				encodePair(`${key}[${k}]`, v)
+			}
 		} else {
 			append(key, value)
 		}
 	}
 
-	Object.entries(params).forEach(([key, value]) => encodePair(key, value))
+	for (const [key, value] of Object.entries(params)) {
+		encodePair(key, value)
+	}
 
 	return qs.length ? `?${qs.join('&')}` : ''
 }
@@ -68,6 +75,7 @@ const getUrl = (config: OpenAPIConfig, options: ApiRequestOptions): string => {
 	const path = options.url
 		.replace('{api-version}', config.VERSION)
 		.replace(/{(.*?)}/g, (substring: string, group: string) => {
+			// biome-ignore lint/suspicious/noPrototypeBuiltins: <explanation>
 			if (options.path?.hasOwnProperty(group)) {
 				return encoder(String(options.path[group]))
 			}
@@ -92,15 +100,17 @@ export const getFormData = (
 			}
 		}
 
-		Object.entries(options.formData)
-			.filter(([, value]) => value !== undefined && value !== null)
-			.forEach(([key, value]) => {
-				if (Array.isArray(value)) {
-					value.forEach((v) => process(key, v))
-				} else {
-					process(key, value)
+		for (const [key, value] of Object.entries(options.formData).filter(
+			([, value]) => value !== undefined && value !== null,
+		)) {
+			if (Array.isArray(value)) {
+				for (const v of value) {
+					process(key, v)
 				}
-			})
+			} else {
+				process(key, value)
+			}
+		}
 
 		return formData
 	}
@@ -138,6 +148,7 @@ export const getHeaders = async (
 		.filter(([, value]) => value !== undefined && value !== null)
 		.reduce(
 			(headers, [key, value]) => ({
+				// biome-ignore lint/performance/noAccumulatingSpread: <explanation>
 				...headers,
 				[key]: String(value),
 			}),
@@ -145,12 +156,12 @@ export const getHeaders = async (
 		)
 
 	if (isStringWithValue(token)) {
-		headers['Authorization'] = `Bearer ${token}`
+		headers.Authorization = `Bearer ${token}`
 	}
 
 	if (isStringWithValue(username) && isStringWithValue(password)) {
 		const credentials = base64(`${username}:${password}`)
-		headers['Authorization'] = `Basic ${credentials}`
+		headers.Authorization = `Basic ${credentials}`
 	}
 
 	if (options.body !== undefined) {
@@ -175,15 +186,15 @@ export const getRequestBody = (options: ApiRequestOptions): unknown => {
 			options.mediaType?.includes('+json')
 		) {
 			return JSON.stringify(options.body)
-		} else if (
+		}
+		if (
 			isString(options.body) ||
 			isBlob(options.body) ||
 			isFormData(options.body)
 		) {
 			return options.body
-		} else {
-			return JSON.stringify(options.body)
 		}
+		return JSON.stringify(options.body)
 	}
 	return undefined
 }
@@ -192,6 +203,7 @@ export const sendRequest = async (
 	config: OpenAPIConfig,
 	options: ApiRequestOptions,
 	url: string,
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	body: any,
 	formData: FormData | undefined,
 	headers: Headers,
@@ -204,9 +216,12 @@ export const sendRequest = async (
 		body: body ?? formData,
 		method: options.method,
 		signal: controller.signal,
+		// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 		cache: (options.path?.cache as any)?.type,
 		next: {
+			// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 			revalidate: (options.path?.cache as any)?.revalidate,
+			// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 			tags: (options.path?.cache as any)?.tags,
 		},
 	}
@@ -237,6 +252,7 @@ export const getResponseHeader = (
 	return undefined
 }
 
+// biome-ignore lint/complexity/noExcessiveCognitiveComplexity: <explanation>
 export const getResponseBody = async (response: Response): Promise<unknown> => {
 	if (response.status !== 204) {
 		try {
@@ -255,11 +271,14 @@ export const getResponseBody = async (response: Response): Promise<unknown> => {
 					contentType.includes('+json')
 				) {
 					return await response.json()
-				} else if (binaryTypes.some((type) => contentType.includes(type))) {
+				}
+				if (binaryTypes.some((type) => contentType.includes(type))) {
 					return await response.blob()
-				} else if (contentType.includes('multipart/form-data')) {
+				}
+				if (contentType.includes('multipart/form-data')) {
 					return await response.formData()
-				} else if (contentType.includes('text/')) {
+				}
+				if (contentType.includes('text/')) {
 					return await response.text()
 				}
 			}
@@ -329,7 +348,7 @@ export const catchErrorCodes = (
 		const errorBody = (() => {
 			try {
 				return JSON.stringify(result.body, null, 2)
-			} catch (e) {
+			} catch (_e) {
 				return undefined
 			}
 		})()
