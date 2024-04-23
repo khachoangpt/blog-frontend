@@ -5,4 +5,5 @@ export default defineConfig({
 	output: 'client-sdk/backend',
 	client: 'fetch',
 	request: './client-sdk/request/index.ts',
+	enums: 'typescript',
 })

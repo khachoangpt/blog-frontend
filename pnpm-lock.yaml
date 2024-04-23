@@ -127,8 +127,8 @@ importers:
         specifier: ^18.6.3
         version: 18.6.3
       '@hey-api/openapi-ts':
-        specifier: ^0.39.0
-        version: 0.39.0(typescript@5.4.5)
+        specifier: ^0.42.1
+        version: 0.42.1(typescript@5.4.5)
       '@svgr/webpack':
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.4.5)
@@ -170,8 +170,8 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@apidevtools/json-schema-ref-parser@11.5.4':
-    resolution: {integrity: sha512-o2fsypTGU0WxRxbax8zQoHiIB4dyrkwYfcm8TxZ+bx9pCzcWZbQtiMqpgBvWA/nJ2TrGjK5adCLfTH8wUeU/Wg==}
+  '@apidevtools/json-schema-ref-parser@11.5.5':
+    resolution: {integrity: sha512-hv/aXDILyroHioVW27etFMV+IX6FyNn41YwbeGIAt5h/7fUTQvHI5w3ols8qYAT8aQt3kzexq5ZwxFDxNHIhdQ==}
     engines: {node: '>= 16'}
 
   '@babel/code-frame@7.24.2':
@@ -971,8 +971,8 @@ packages:
   '@formatjs/intl-localematcher@0.5.4':
     resolution: {integrity: sha512-zTwEpWOzZ2CiKcB93BLngUX59hQkuZjT2+SAQEscSm52peDW/getsawMcWF1rGRpMCX6D7nSJA3CzJ8gn13N/g==}
 
-  '@hey-api/openapi-ts@0.39.0':
-    resolution: {integrity: sha512-gvJpGBUeKRHJV8dCrKNUo/+8SFIkLgqDWcGeOxd/G1ZLrC6YZoO37XGPFlpmdlbosvcmqxJHKwYmsqMAfW6w+g==}
+  '@hey-api/openapi-ts@0.42.1':
+    resolution: {integrity: sha512-hLWNkTwvF0xdop8R6WTXNZRS+Nc4qPxf15Bad0Ft03rR/DGi4UkHtrjDsSo7ZqIZjl82mXNOxuX8j6ZS5VF2Gw==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -3367,7 +3367,7 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@apidevtools/json-schema-ref-parser@11.5.4':
+  '@apidevtools/json-schema-ref-parser@11.5.5':
     dependencies:
       '@jsdevtools/ono': 7.1.3
       '@types/json-schema': 7.0.15
@@ -4351,9 +4351,9 @@ snapshots:
     dependencies:
       tslib: 2.6.2
 
-  '@hey-api/openapi-ts@0.39.0(typescript@5.4.5)':
+  '@hey-api/openapi-ts@0.42.1(typescript@5.4.5)':
     dependencies:
-      '@apidevtools/json-schema-ref-parser': 11.5.4
+      '@apidevtools/json-schema-ref-parser': 11.5.5
       c12: 1.10.0
       camelcase: 8.0.0
       commander: 12.0.0

@@ -1,5 +1,4 @@
-import type { LoginParams } from '$/backend'
-import { ErrorMessages } from '$/backend/models/ErrorMessages'
+import { ErrorMessagesEnum, type LoginParams } from '$/backend'
 import { login } from '@/actions/auth'
 import { pageList } from '@/constants'
 import { loginSchema } from '@/constants/validation-schemas'
@@ -49,9 +48,9 @@ const useLoginController = () => {
 	 */
 	const getLoginErrorMessage = (error?: string): string => {
 		switch (error) {
-			case ErrorMessages.CUSTOMER_NOT_FOUND:
+			case ErrorMessagesEnum.CUSTOMER_NOT_FOUND:
 				return t('Login.toast.customer-not-found')
-			case ErrorMessages.EMAIL_OR_PASSWORD_INCORRECT:
+			case ErrorMessagesEnum.EMAIL_OR_PASSWORD_INCORRECT:
 				return t('Login.toast.email-or-password-incorrect')
 			default:
 				return t('Common.toast.unknown-error')
