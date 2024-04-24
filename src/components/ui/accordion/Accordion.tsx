@@ -3,13 +3,14 @@
 import { cn } from '@/lib/utils'
 import * as AccordionPrimitive from '@radix-ui/react-accordion'
 import type { VariantProps } from 'class-variance-authority'
-import { ChevronDown } from 'lucide-react'
 import {
 	type ComponentPropsWithoutRef,
 	type ElementRef,
 	forwardRef,
 } from 'react'
+import { Icons } from '#/svgs'
 import { Container } from '../container'
+import { Text } from '../text'
 import {
 	accordionContentVariants,
 	accordionItemVariants,
@@ -35,15 +36,22 @@ const AccordionTrigger = forwardRef<
 	ElementRef<typeof AccordionPrimitive.Trigger>,
 	ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> &
 		VariantProps<typeof accordionTriggerVariants>
->(({ className, children, ...props }, ref) => (
+>(({ className, children, state, ...props }, ref) => (
 	<AccordionPrimitive.Header className="flex">
 		<AccordionPrimitive.Trigger
 			ref={ref}
 			className={cn(accordionTriggerVariants(), className)}
 			{...props}
 		>
+			<Text as="span" className="w-12 h-12 flex items-center justify-center">
+				{state === 'not-started' && <Icons.CircleMiniSolid />}
+				{state === 'in-progress' && <Icons.CircleHalfSolid />}
+				{state === 'completed' && <Icons.CheckCircleSolid />}
+			</Text>
 			{children}
-			<ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200" />
+			<Container className="ml-auto shrink-0 p-2 hover:bg-[#27282d] rounded-md">
+				<Icons.Plus className="transition-transform duration-200 group-data-[state=open]:rotate-45" />
+			</Container>
 		</AccordionPrimitive.Trigger>
 	</AccordionPrimitive.Header>
 ))
@@ -59,7 +67,9 @@ const AccordionContent = forwardRef<
 		className={accordionContentVariants()}
 		{...props}
 	>
-		<Container className={cn('pb-4 pt-0', className)}>{children}</Container>
+		<Container className={cn('pb-4 pl-20 pt-0', className)}>
+			{children}
+		</Container>
 	</AccordionPrimitive.Content>
 ))
 
