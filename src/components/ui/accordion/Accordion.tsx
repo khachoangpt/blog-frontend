@@ -44,13 +44,19 @@ const AccordionTrigger = forwardRef<
 			{...props}
 		>
 			<Text as="span" className="w-12 h-12 flex items-center justify-center">
-				{state === 'not-started' && <Icons.CircleMiniSolid />}
-				{state === 'in-progress' && <Icons.CircleHalfSolid />}
-				{state === 'completed' && <Icons.CheckCircleSolid />}
+				{state === 'not-started' && (
+					<Icons.CircleMiniSolid className="w-5 h-5" />
+				)}
+				{state === 'in-progress' && (
+					<Icons.CircleHalfSolid className="w-5 h-5" />
+				)}
+				{state === 'completed' && (
+					<Icons.CheckCircleSolid className="w-5 h-5" />
+				)}
 			</Text>
 			{children}
 			<Container className="ml-auto shrink-0 p-2 hover:bg-[#27282d] rounded-md">
-				<Icons.Plus className="transition-transform duration-200 group-data-[state=open]:rotate-45" />
+				<Icons.Plus className="w-4 h-4 transition-transform duration-200 group-data-[state=open]:rotate-45" />
 			</Container>
 		</AccordionPrimitive.Trigger>
 	</AccordionPrimitive.Header>

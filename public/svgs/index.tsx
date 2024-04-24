@@ -17,4 +17,4 @@ export const Icons = {
 	CircleMiniSolid: CircleMiniSolid as Icon,
 	CircleHalfSolid: CircleHalfSolid as Icon,
 	CheckCircleSolid: CheckCircleSolid as Icon,
-} as const
+}

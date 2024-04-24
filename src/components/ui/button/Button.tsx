@@ -38,7 +38,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 				<Text as="span" className={cn({ 'opacity-0': loading })}>
 					{children}
 				</Text>
-				{loading && <Icons.Spinner className="absolute animate-spin text-lg" />}
+				{loading && <Icons.Spinner className="absolute animate-spin w-4 h-4" />}
 			</Comp>
 		)
 	},
