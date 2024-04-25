@@ -1,4 +1,5 @@
 import type { GetBlogDetailResponse } from '@/client-sdk/backend/types.gen'
+import { Image } from '@/components/common/image'
 import {
 	Card,
 	CardContent,
@@ -7,7 +8,6 @@ import {
 } from '@/components/ui/card'
 import { Container } from '@/components/ui/container'
 import { pageList } from '@/constants'
-import Image from 'next/image'
 import Link from 'next/link'
 
 type Props = {
